@@ -16,7 +16,7 @@ mkdir  ./build_qdpc
 cd ./build_qdpc
 
 
-${SRCDIR}/qdpc/configure \
+${SRCDIR}/qdp/configure \
 	--prefix=${INSTALLDIR}/qdpc \
 	--with-qmp=${INSTALLDIR}/qmp \
 	--with-qio=${INSTALLDIR}/qio \
