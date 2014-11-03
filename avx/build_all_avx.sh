@@ -1,3 +1,6 @@
+./purge_build.sh
+./purge_install.sh
+
 # Build everything
 ./build_qmp.sh
 ./build_libxml2.sh

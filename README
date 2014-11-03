@@ -1,0 +1,14 @@
+This is a work in progress.
+
+I have tested the avx/ directory on Edison
+I have tested the parscalar/ directory on Edison
+
+MIC directory as yet untested and probably buggy -- will work on this on Babbage/JLab/Stampede
+
+jit directory is undergoing tests on BlueWaters
+quda directory tested on BlueWaters
+
+scalar directory untested.
+
+Sources updated on the AM of Nov 3. We had some build fails in the nightlies. Hopefully
+I don't have duff sources. Actually the ones I tested built fine on Edison
