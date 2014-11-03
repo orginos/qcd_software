@@ -1,3 +1,6 @@
+
+. ../setup.sh
+
 ##### 
 # SET UP ENVIRONMENT
 # The directory containing the build scripts, this script and the src/ tree

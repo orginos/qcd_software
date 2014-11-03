@@ -1,6 +1,6 @@
 ##### 
 # SET UP ENVIRONMENT
-../setup.sh
+. ../setup.sh
 
 
 CUDA_INSTALL_PATH=/usr/local/cuda-5.0
