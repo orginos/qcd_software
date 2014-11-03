@@ -1,5 +1,8 @@
 ##### 
 # SET UP ENVIRONMENT
+../setup.sh
+
+
 CUDA_INSTALL_PATH=/usr/local/cuda-5.0
 MPIHOME=/usr/mpi/gcc/mvapich2-1.8
 OMP="yes"

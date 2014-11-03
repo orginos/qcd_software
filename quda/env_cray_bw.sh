@@ -2,6 +2,7 @@
 # SET UP ENVIRONMENT
 #
 
+. ../setup.sh
 
 OMP="yes"     # For JIT-ing don't use OpenMP for now
 SM=sm_35     # Kepler GK110
