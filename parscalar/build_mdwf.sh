@@ -14,7 +14,7 @@ fi
 
 mkdir  ./build_mdwf
 cd ./build_mdwf
-cp -r ${SRCDIR}/mdwf-1.1.4/* .
+cp -r ${SRCDIR}/mdwf/* .
 
 export CC="${PK_CC}"
 export CFLAGS="${PK_CFLAGS}"

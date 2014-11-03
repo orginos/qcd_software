@@ -4,6 +4,9 @@
 # BUILD QMP
 #################
 source env.sh
+pushd ${SRCDIR}/qdp
+autoreconf
+popd
 
 pushd ${BUILDDIR}
 

@@ -5,6 +5,10 @@
 #################
 source env.sh
 
+pushd ${SRCDIR}/qla
+autoreconf
+popd
+
 pushd ${BUILDDIR}
 
 if [ -d ./build_qla ]; 
