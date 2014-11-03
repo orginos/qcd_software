@@ -11,12 +11,12 @@ popd
 
 pushd ${BUILDDIR}
 
-#if [ -d ./build_chroma ]; 
-#then 
-#  rm -rf ./build_chroma
-#fi
+if [ -d ./build_chroma ]; 
+then 
+  rm -rf ./build_chroma
+fi
 
-#mkdir  ./build_chroma
+mkdir  ./build_chroma
 cd ./build_chroma
 
 
