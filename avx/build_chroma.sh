@@ -26,7 +26,7 @@ ${SRCDIR}/chroma/configure --prefix=${INSTALLDIR}/chroma \
 	--with-qdp=${INSTALLDIR}/qdp++ \
          --enable-cpp-wilson-dslash --enable-sse2 --enable-sse3 ${OMPENABLE} \
         --with-qmp=${INSTALLDIR}/qmp \
-	--with-qphix-solver=${INSTALLDIR}/dslash-avx-s8 \
+	--with-qphix-solver=${INSTALLDIR}/dslash-avx-s4 \
 	--enable-qphix-solver-arch=avx \
 	--enable-qphix-solver-soalen=4 \
 	--enable-qphix-solver-compress12 \
