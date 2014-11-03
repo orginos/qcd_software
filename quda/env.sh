@@ -73,3 +73,9 @@ HOST_CC=gcc
 HOST_CXX=g++
 HOST_CXXFLAGS="-O2"
 HOST_CFLAGS="-02"
+
+# IF /tmp  space is too tight to build you can add these flags to QUDA building...
+#PK_NVCCFLAGS="NVCCFLAGS=\"--keep --keep-dir=/scratch/bjoo/tmp\""
+
+PK_NVCCFLAGS=""
+
