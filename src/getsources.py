@@ -40,7 +40,6 @@ chroma = ("chroma", "GIT", "git@github.com:JeffersonLab/chroma.git","master")
 qdpxx = ("qdpxx", "GIT", "git@github.com:usqcd-software/qdpxx.git", "master")
 qdp_jit=("qdp-jit", "GIT", "git@github.com:fwinter/qdp-jit","master")
 qmp=("qmp", "GIT", "git@github.com:usqcd-software/qmp.git", "master")
-mdwf=("mdwf", "GIT", "git@github.com:usqcd-software/mdwf.git", "mdwf-1.1.4")
 quda=("quda", "GIT", "git@github.com:lattice/quda.git", "quda-0.7")
 qphix=("qphix", "GIT", "git@github.com:JeffersonLab/qphix.git", "master")
 
@@ -50,8 +49,10 @@ qio=("qio", "GIT", "git@github.com:usqcd-software/qio.git", "qio2-3-9")
 qla=("qla", "GIT", "git@github.com:usqcd-software/qla.git", "qla1-8-0")
 qopqdp=("qopqdp", "GIT", "git@github.com:usqcd-software/qopqdp.git", "qopqdp0-19-3")
 
-# Libxml 
+# These two pacakges are annoyying to get via GITHUB, so I have to package them  :(
+
 libxml2=("libxml2", "TARGZ", "./libxml2.tar.gz", "libxml2")
+mdwf=("mdwf", "TARGZ", "./mdwf-1.1.4.tar.gz", "mdwf-1.1.4")
 
 # FULL PACKAGE LIST -- I distribute this because I have the 'ansidecl' thing commented out
 package_list=[ chroma, qdpxx, qdp_jit, qmp, mdwf, quda, qphix, qdpc, qio, qla, qopqdp, libxml2 ]
