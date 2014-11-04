@@ -38,8 +38,8 @@ pushd ./build_quda
 	CC=${PK_CC} CXX=${PK_CXX} \
 	--host=x86_64-unknown-linux \
 	--build=x86_64-suse-linux \
-	--with-qmp=${INSTALLDIR}/qmp \
-	NVCCFLAGS="--keep --keep-dir=/scratch/bjoo/tmp"
+	--with-qmp=${INSTALLDIR}/qmp ${PK_NVCCFLAGS}
+
 make clean
 make
 popd

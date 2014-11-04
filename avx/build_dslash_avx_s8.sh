@@ -34,8 +34,6 @@ ${SRCDIR}/qphix/configure \
 	CC="${PK_CC}" \
 	--host=x86_64-linux-gnu --build=none \
 	${OMPENABLE}
-
-#       --with-qmp=${INSTALLDIR}/qmp 
 ${MAKE} clean
 ${MAKE}
 ${MAKE} install

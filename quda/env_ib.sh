@@ -61,3 +61,4 @@ MAKE="make -j 10"
 ### MPI
 PK_CC=mpicc
 PK_CXX=mpicxx
+PK_NVCCFLAGS="NVCCFLAGS=\"--keep --keep-dir=/scratch/bjoo/tmp\""
