@@ -31,9 +31,9 @@ ${SRCDIR}/chroma/configure --prefix=${INSTALLDIR}/chroma \
         CC="${PK_CC}"  CXX="${PK_CXX}" \
 	CXXFLAGS="" CFLAGS="" \
         --host=x86_64-linux-gnu --build=none \
-	--enable-quda-deviface \
 	--enable-jit-clover \
         --with-quda=${INSTALLDIR}/quda_qdp_single \
+	--enable-quda-deviface \
         --with-cuda=${PK_CUDA_HOME}
 ${MAKE}
 ${MAKE} install

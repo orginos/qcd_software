@@ -6,7 +6,7 @@
 source env.sh
 
 pushd ${SRCDIR}/qdp-jit
-aclocal; automake; autoconf
+autoreconf
 popd
 
 pushd ${BUILDDIR}
