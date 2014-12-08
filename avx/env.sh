@@ -11,7 +11,9 @@ module unload PrgEnv-cray
 module unload PrgEnv-intel
 module unload PrgEnv-pgi
 module unload PrgEnv-gnu
+module unload darshan
 module load PrgEnv-intel
+module load perftools
 module list
 
 
