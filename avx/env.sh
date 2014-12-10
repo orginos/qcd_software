@@ -7,13 +7,10 @@
 # Source whatever it is you need to set up your compiler here.
 # Change this to use your compiler.
 . /opt/modules/default/init/bash
-module unload PrgEnv-cray
-module unload PrgEnv-intel
-module unload PrgEnv-pgi
-module unload PrgEnv-gnu
-module unload darshan
-module load PrgEnv-intel
-module load perftools
+module unload intel
+module load intel/14.0.3.update
+module unload impi
+module load impi/4.1.1
 module list
 
 
@@ -50,5 +47,5 @@ MAKE="make -j 8"
 # Compilers for compiling package (passed as CC to ./configure throghout) 
 
 # Cray stuff
-PK_CC=cc
-PK_CXX=CC
+PK_CC=mpiicc
+PK_CXX=mpiicpc
