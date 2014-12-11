@@ -16,13 +16,14 @@ then
   rm -rf ./build_qdpxx-scalar-avx
 fi
 
-mkdir  ./build_qdpxx-parscalar-avx
-cd ./build_qdpxx-parscalar-avx
+mkdir  ./build_qdpxx-scalar-avx
+cd ./build_qdpxx-scalar-avx
 
 
 ${SRCDIR}/qdpxx/configure \
 	--prefix=${INSTALLDIR}/qdp++-scalar \
         --enable-parallel-arch=scalar \
+	--enable-precision=double \
         --disable-filedb \
         --enable-largefile \
         --enable-parallel-io \
