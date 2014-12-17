@@ -51,7 +51,7 @@ ARCHFLAGS="-xAVX -restrict"
 # Enable this for MIC
 #ARCHFLAGS="-mmic -vec-report -restrict -mGLOB_default_function_attrs=\"use_gather_scatter_hint=off\""
 #ARCHFLAGS="-mmic -vec-report -restrict "
-PK_CXXFLAGS=${OMPFLAGS}" -g -O2 -finline-functions -fno-alias -std=c++11 "${ARCHFLAGS}
+PK_CXXFLAGS=${OMPFLAGS}" -O3 -finline-functions -fno-alias -std=c++11 "${ARCHFLAGS}
 
 PK_CFLAGS=${OMPFLAGS}" -g  -O2 -fno-alias -std=c99 "${ARCHFLAGS}
 

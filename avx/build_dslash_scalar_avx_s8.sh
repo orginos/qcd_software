@@ -11,17 +11,17 @@ popd
 
 pushd ${BUILDDIR}
 
-if [ -d ./build_dslash_scalar_avx_s4 ]; 
+if [ -d ./build_dslash_scalar_avx_s8 ]; 
 then 
-  rm -rf ./build_dslash_scalar_avx_s4
+  rm -rf ./build_dslash_scalar_avx_s8
 fi
 
-mkdir  ./build_dslash_scalar_avx_s4
-cd ./build_dslash_scalar_avx_s4
+mkdir  ./build_dslash_scalar_avx_s8
+cd ./build_dslash_scalar_avx_s8
 
 
 ${SRCDIR}/qphix/configure \
-	--prefix=${INSTALLDIR}/dslash-avx-s4 \
+	--prefix=${INSTALLDIR}/dslash-avx-s8 \
 	--with-qdp=${INSTALLDIR}/qdp++-scalar \
 	--enable-proc=AVX \
 	--enable-soalen=4 \
