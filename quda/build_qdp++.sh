@@ -25,6 +25,7 @@ ${SRCDIR}/qdpxx/configure \
 	--with-libxml2=${INSTALLDIR}/libxml2 \
 	--with-qmp=${INSTALLDIR}/qmp \
         --enable-parallel-arch=parscalar \
+	--enable-sse \
 	--enable-sse2 --enable-db-lite \
 	--enable-precision=single \
 	--enable-largefile \

@@ -57,6 +57,9 @@ qdp_jit=("qdp-jit", "GIT", "git@github.com:fwinter/qdp-jit","master",False)
 qmp=("qmp", "GIT", "git@github.com:usqcd-software/qmp.git", "master",False)
 quda=("quda", "GIT", "git@github.com:lattice/quda.git", "master",False)
 qphix=("qphix", "GIT", "git@github.com:JeffersonLab/qphix.git", "master",False)
+harom=("harom", "GIT", "git@github.com:JeffersonLab/harom.git", "master",False)
+hadron=("hadron", "GIT", "git@github.com:JeffersonLab/hadron.git", "master",False)
+tensor=("tensor", "GIT", "git@github.com:JeffersonLab/tensor.git", "master",False)
 
 # QDP/C libraries for Multigrid
 qdpc=("qdp", "GIT", "git@github.com:usqcd-software/qdp.git", "qdp1-10-0",True)
@@ -70,7 +73,7 @@ libxml2=("libxml2", "TARGZ", "./libxml2.tar.gz", "libxml2",True)
 mdwf=("mdwf", "TARGZ", "./mdwf-1.1.4.tar.gz", "mdwf-1.1.4",True)
 
 # FULL PACKAGE LIST -- I distribute this because I have the 'ansidecl' thing commented out
-package_list=[ chroma, qdpxx, qdp_jit, qmp, mdwf, quda, qphix, qdpc, qio, qla, qopqdp, libxml2 ]
+package_list=[ chroma, qdpxx, harom, hadron, tensor, qdp_jit, qmp, mdwf, quda, qphix, qdpc, qio, qla, qopqdp, libxml2 ]
 
 for pkg in package_list:
         (name,method,url,branchname,tagP)=pkg 

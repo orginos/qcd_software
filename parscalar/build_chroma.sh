@@ -27,15 +27,20 @@ ${SRCDIR}/chroma/configure --prefix=${INSTALLDIR}/chroma \
         CC="${PK_CC}"  CXX="${PK_CXX}" \
 	CXXFLAGS="${PK_CXXFLAGS}" CFLAGS="${PK_CFLAGS}" \
         --enable-sse-scalarsite-bicgstab-kernels --host=x86_64-linux-gnu --build=none \
-	--with-qmp=${INSTALLDIR}/qmp \
-	--with-mdwf=${INSTALLDIR}/mdwf \
-        --with-qla=${INSTALLDIR}/qla \
-        --with-qio=${INSTALLDIR}/qio \
-        --with-qdpc=${INSTALLDIR}/qdpc \
-        --with-qopqdp=${INSTALLDIR}/qopqdp \
-        --enable-qop-mg
+	--with-qmp=${INSTALLDIR}/qmp
+# \
+#	--with-mdwf=${INSTALLDIR}/mdwf \
+#       --with-qla=${INSTALLDIR}/qla \
+#        --with-qio=${INSTALLDIR}/qio \
+#        --with-qdpc=${INSTALLDIR}/qdpc \
+#        --with-qopqdp=${INSTALLDIR}/qopqdp \
+#        --enable-qop-mg \
+#	--enable-site-tests
 
 ${MAKE}
-${MAKE} install
+${MAKE} check
+make xcheck
+
+#${MAKE} install
 
 popd

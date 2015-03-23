@@ -18,53 +18,43 @@
 #
 . /opt/modules/default/init/bash
 module unload PrgEnv-cray
+module unload PrgEnv-intel
 module unload PrgEnv-pgi
 module load PrgEnv-gnu
 module unload gcc
-module load gcc/4.6.3
-module unload cudatoolkit
-module load cudatoolkit
-
+module load gcc/4.8.2
 # CUDA Has some restrictions on GCC versions. 4.0 is OK I think
 module list
-CUDA_HOME=$CUDATOOLKIT_HOME
 
 ### DIRECTORIES
 MPIHOME=${MPICH_DIR}
-CUDA_INSTALL_PATH=${CUDA_HOME}
-#export PATH=${CUDA_INSTALL_PATH}/bin:${MPIHOME}/bin:$PATH
-#export LD_LIBRARY_PATH=${CUDA_INSTALL_PATH}/lib64:${CUDA_INSTALL_PATH}/lib:${MPIHOME}/lib64:${MPIHOME}/lib:${LD_LIBRARY_PATH}
 
 # The directory containing the build scripts, this script and the src/ tree
 TOPDIR=`pwd`
 
 # Install directory
-INSTALLDIR=${TOPDIR}/install/${SM}
+INSTALLDIR=${TOPDIR}/install
 
 # Source directory
 SRCDIR=${TOPDIR}/../src
 
 # Build directory
 BUILDDIR=${TOPDIR}/build
-SM=sm_35     # Kepler GK110
-
 
 ### ENV VARS for CUDA/MPI
 # These are used by the configure script to make make.inc
-PK_CUDA_HOME=${CUDA_INSTALL_PATH}    # At LLNL Loading the module sets this. Otherwise do by hand
 PK_MPI_HOME=${MPIHOME}               # At LLNL Loading the module sets this. Otherwise do by hand
-PK_GPU_ARCH=${SM}	# GK110 Arch
 
 ### OpenMP
-OMPFLAGS="-fopenmp"
-OMPENABLE="--enable-openmp"
-#OMPFLAGS=""
-#OMPENABLE=""
+#OMPFLAGS="-fopenmp"
+#OMPENABLE="--enable-openmp"
+OMPFLAGS=""
+OMPENABLE=""
 
 ### COMPILER FLAGS
-PK_CXXFLAGS=${OMPFLAGS}" -O3 -std=c++0x -march=bdver1 -mprefer-avx128"
+PK_CXXFLAGS=${OMPFLAGS}" -O3 -std=c++11 -march=corei7-avx"
 
-PK_CFLAGS=${OMPFLAGS}" -O3 -march=bdver1 -mprefer-avx128 -std=gnu99"
+PK_CFLAGS=${OMPFLAGS}" -O3 -march=corei7-avx -std=gnu99"
 
 ### Make
 MAKE="make -j 10"
