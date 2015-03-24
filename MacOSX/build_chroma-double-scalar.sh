@@ -6,7 +6,7 @@
 source env.sh
 
 pushd ${SRCDIR}/chroma
-aclocal; automake; autoconf
+automake; autoconf
 popd
 
 pushd ${BUILDDIR}
@@ -20,12 +20,13 @@ mkdir  ./build_chroma-double-scalar
 cd ./build_chroma-double-scalar
 
 
-${SRCDIR}/chroma/configure --prefix=${INSTALLDIR}/chroma-double-scalar \
-	--with-qdp=${INSTALLDIR}/qdp++-double-scalar \
+${SRCDIR}/chroma/configure --prefix=${INSTALLDIR}/chroma/scalar-dp \
+	--with-qdp=${INSTALLDIR}/qdp++/scalar-dp \
         --enable-cpp-wilson-dslash --enable-sse2 --enable-sse3 ${OMPENABLE} \
         CC="${PK_CC}"  CXX="${PK_CXX}" \
 	CXXFLAGS="" CFLAGS="" \
         --enable-sse-scalarsite-bicgstab-kernels --host=x86_64-linux-gnu --build=none
+
 ${MAKE}
 ${MAKE} install
 
