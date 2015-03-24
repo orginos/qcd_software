@@ -6,7 +6,7 @@
 source env.sh
 
 pushd ${SRCDIR}/harom
-aclocal; automake; autoconf
+autoreconf -f -i
 popd
 
 pushd ${BUILDDIR}
@@ -20,13 +20,13 @@ mkdir  ./build_harom-scalar
 cd ./build_harom-scalar
 
 
-${SRCDIR}/harom/configure --prefix=${INSTALLDIR}/harom-scalar \
+${SRCDIR}/harom/configure --prefix=${INSTALLDIR}/harom/scalar \
         --with-hadron=${INSTALLDIR}/hadron \
-	--with-qdp=${INSTALLDIR}/qdp++-scalar_3d \
+	--with-qdp=${INSTALLDIR}/qdp++/scalar_3d \
         --enable-sse2 --enable-sse3 ${OMPENABLE} \
         CC="${PK_CC}"  CXX="${PK_CXX}" \
-	CXXFLAGS="" CFLAGS="" \
-        --host=x86_64-linux-gnu --build=none
+	CXXFLAGS="" CFLAGS="" 
+
 
 ${MAKE}
 ${MAKE} install
