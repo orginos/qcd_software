@@ -25,8 +25,8 @@ ${SRCDIR}/tensor/configure --prefix=${INSTALLDIR}/tensor \
      F77="gfortran" \
      ${OMPENABLE} \
      CC="${PK_CC}"  CXX="${PK_CXX}" \
-     CXXFLAGS="-I /dist/scidac/atlas/include" \
-     LDFLAGS="-L /dist/scidac/atlas/lib"  LIBS="-llapack -lcblas -latlas"
+     CXXFLAGS=" " \
+     LDFLAGS=" "  LIBS="-framework Accelerate -llapack -lblas"
 
 ${MAKE}
 ${MAKE} install
