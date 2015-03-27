@@ -67,6 +67,8 @@ qdpc=("qdp", "GIT", "git@github.com:usqcd-software/qdp.git", "qdp1-10-0",True)
 qio=("qio", "GIT", "git@github.com:usqcd-software/qio.git", "qio2-3-9",True)
 qla=("qla", "GIT", "git@github.com:usqcd-software/qla.git", "qla1-8-0",True)
 qopqdp=("qopqdp", "GIT", "git@github.com:usqcd-software/qopqdp.git", "qopqdp0-19-3", True)
+#primme=("primme", "WGET", "http://www.cs.wm.edu/~andreas/software/primme_v1.2.tar.gz", "primme_v1.2") 
+primme=("primme", "TARGZ", "./primme_v1.2.tar.gz", "primme_v1.2",True) 
 
 # These two pacakges are annoyying to get via GITHUB, so I have to package them  :(
 
@@ -74,7 +76,7 @@ libxml2=("libxml2", "TARGZ", "./libxml2.tar.gz", "libxml2",True)
 mdwf=("mdwf", "TARGZ", "./mdwf-1.1.4.tar.gz", "mdwf-1.1.4",True)
 
 # FULL PACKAGE LIST -- I distribute this because I have the 'ansidecl' thing commented out
-package_list=[ chroma, qdpxx, harom, hadron, tensor, qdp_jit, qmp, mdwf, quda, qphix, qdpc, qio, qla, qopqdp, libxml2 ]
+package_list=[ chroma, qdpxx, harom, hadron, tensor, qdp_jit, qmp, mdwf, quda, qphix, qdpc, qio, qla, qopqdp, libxml2,primme ]
 
 for pkg in package_list:
         (name,method,url,branchname,tagP)=pkg 
