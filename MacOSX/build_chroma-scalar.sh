@@ -6,6 +6,7 @@
 source env.sh
 
 pushd ${SRCDIR}/chroma
+#autoreconf -f -i 
 automake; autoconf
 popd
 
