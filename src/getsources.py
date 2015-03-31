@@ -63,6 +63,7 @@ hadron=("hadron", "GIT", "git@github.com:JeffersonLab/hadron.git", "master",Fals
 tensor=("tensor", "GIT", "git@github.com:JeffersonLab/tensor.git", "master",False)
 adat=("adat", "GIT", "git@github.com:JeffersonLab/adat.git", "master",False)
 chroma_utils=("chroma_utils", "GIT", "git@github.com:JeffersonLab/chroma_utils.git", "master",False)
+colorvec=("colorvec", "GIT", "git@github.com:JeffersonLab/colorvec.git", "master",False)
 
 # QDP/C libraries for Multigrid
 qdpc=("qdp", "GIT", "git@github.com:usqcd-software/qdp.git", "qdp1-10-0",True)
@@ -78,7 +79,7 @@ libxml2=("libxml2", "TARGZ", "./libxml2.tar.gz", "libxml2",True)
 mdwf=("mdwf", "TARGZ", "./mdwf-1.1.4.tar.gz", "mdwf-1.1.4",True)
 
 # FULL PACKAGE LIST -- I distribute this because I have the 'ansidecl' thing commented out
-package_list=[ chroma_utils, adat, chroma, qdpxx, harom, hadron, tensor, qdp_jit, qmp, mdwf, quda, qphix, qdpc, qio, qla, qopqdp, libxml2,primme ]
+package_list=[ chroma_utils, adat, chroma, qdpxx, harom, hadron, tensor, qdp_jit, qmp, mdwf, quda, qphix, qdpc, qio, qla, qopqdp, libxml2,primme,colorvec ]
 
 for pkg in package_list:
         (name,method,url,branchname,tagP)=pkg 
