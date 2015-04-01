@@ -40,3 +40,7 @@ MAKE="make -j 16"
 ### MPI
 PK_CC=gcc
 PK_CXX=g++
+
+PK_F77=gfortran
+PK_F77_FLAGS="-g -O3"
+
