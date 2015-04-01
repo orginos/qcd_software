@@ -24,7 +24,7 @@ cd ./build_adat
 ${SRCDIR}/adat/configure --prefix=${INSTALLDIR}/adat \
      CC="${PK_CC}"  CXX="${PK_CXX}" \
      CXXFLAGS="${PK_CXXFLAGS}" \
-     CFLAGS="${PK_CXXFLAGS}" \
+     CFLAGS="${PK_CFLAGS}" \
      LDFLAGS=" "  LIBS=" "
 
 ${MAKE}
