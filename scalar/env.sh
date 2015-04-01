@@ -26,9 +26,9 @@ OMPFLAGS="-fopenmp"
 OMPENABLE="--enable-openmp"
 
 ### COMPILER FLAGS
-PK_CXXFLAGS=${OMPFLAGS}" -O3 -std=c++11  -finline-limit=50000 -march=corei7-avx  -fargument-noalias-global"
+PK_CXXFLAGS=${OMPFLAGS}" -O3 -std=c++11  -finline-limit=50000 -march=native  -fargument-noalias-global"
 
-PK_CFLAGS=${OMPFLAGS}" -O3 -march=corei7-avx -fargument-noalias-global -std=gnu99"
+PK_CFLAGS=${OMPFLAGS}" -O3 -march=native -fargument-noalias-global -std=gnu99"
 
 ### Make
 MAKE="make -j 10"
