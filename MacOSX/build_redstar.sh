@@ -1,12 +1,13 @@
 #!/bin/bash
 #
 #################
-# BUILD Adat
+# BUILD redstar
 #################
 source env.sh
 
-pushd ${SRCDIR}/adat
-autoreconf -f -i 
+pushd ${SRCDIR}/redstar
+./autogen.sh
+autoreconf -f -i
 popd
 
 pushd ${BUILDDIR}
@@ -17,11 +18,13 @@ then
 fi
 
 mkdir  ./build_redstar
-cd ./build_adat
+cd ./build_redstar
 
 
-${SRCDIR}/adat/configure --prefix=${INSTALLDIR}/redstar \
+${SRCDIR}/redstar/configure --prefix=${INSTALLDIR}/redstar \
      CC="${PK_CC}"  CXX="${PK_CXX}" \
+    --with-hadron=${INSTALLDIR}/hadron \
+    --with-adat=${INSTALLDIR}/adat \
      CXXFLAGS=" " \
      LDFLAGS=" "  LIBS="-framework Accelerate -llapack -lblas"
 
