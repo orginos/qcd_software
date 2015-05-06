@@ -61,6 +61,7 @@ qphix=("qphix", "GIT", "git@github.com:JeffersonLab/qphix.git", "master",False)
 harom=("harom", "GIT", "git@github.com:JeffersonLab/harom.git", "devel",False)
 hadron=("hadron", "GIT", "git@github.com:JeffersonLab/hadron.git", "master",False)
 tensor=("tensor", "GIT", "git@github.com:JeffersonLab/tensor.git", "master",False)
+redstar=("redstar", "GIT", "git@github.com:JeffersonLab/redstar.git", "master",False)
 adat=("adat", "GIT", "git@github.com:JeffersonLab/adat.git", "master",False)
 chroma_utils=("chroma_utils", "GIT", "git@github.com:JeffersonLab/chroma_utils.git", "master",False)
 colorvec=("colorvec", "GIT", "git@github.com:JeffersonLab/colorvec.git", "master",False)
@@ -79,7 +80,7 @@ libxml2=("libxml2", "TARGZ", "./libxml2.tar.gz", "libxml2",True)
 mdwf=("mdwf", "TARGZ", "./mdwf-1.1.4.tar.gz", "mdwf-1.1.4",True)
 
 # FULL PACKAGE LIST -- I distribute this because I have the 'ansidecl' thing commented out
-package_list=[ chroma_utils, adat, chroma, qdpxx, harom, hadron, tensor, qdp_jit, qmp, mdwf, quda, qphix, qdpc, qio, qla, qopqdp, libxml2,primme,colorvec ]
+package_list=[ chroma_utils, adat, chroma, qdpxx, harom, hadron, tensor, qdp_jit, qmp, mdwf, quda, qphix, qdpc, qio, qla, qopqdp, libxml2,primme,colorvec,redstar ]
 
 for pkg in package_list:
         (name,method,url,branchname,tagP)=pkg 
