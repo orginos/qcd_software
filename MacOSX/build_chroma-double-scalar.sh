@@ -24,7 +24,8 @@ ${SRCDIR}/chroma/configure --prefix=${INSTALLDIR}/chroma/scalar-dp \
 	--with-qdp=${INSTALLDIR}/qdp++/scalar-dp \
         --enable-cpp-wilson-dslash --enable-sse2 --enable-sse3 ${OMPENABLE} \
         CC="${PK_CC}"  CXX="${PK_CXX}" \
-	CXXFLAGS="" CFLAGS="" \
+	CXXFLAGS="" CFLAGS=""  --enable-lapack=lapack \
+        LIBS=" -llapack -lblas -framework Accelerate"\
         --enable-sse-scalarsite-bicgstab-kernels --host=x86_64-linux-gnu --build=none
 
 ${MAKE}
