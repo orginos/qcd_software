@@ -13,8 +13,8 @@ then
   rm -rf ./build_wm_chroma-scalar
 fi
 
-mkdir  ./build_chroma-scalar
-cd ./build_chroma-scalar
+mkdir  ./build_wm_chroma
+cd ./build_wm_chroma
 cp -p -r ${SRCDIR}/wm_chroma/* .
 
 cat > Makefile<<EOF
