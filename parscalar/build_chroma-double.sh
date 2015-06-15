@@ -29,7 +29,7 @@ ${SRCDIR}/chroma/configure --prefix=${INSTALLDIR}/chroma-double \
 	CXXFLAGS="" CFLAGS="${PK_CFLAGS}" \
         --enable-sse-scalarsite-bicgstab-kernels --host=x86_64-linux-gnu --build=none \
 	--enable-cpp-wilson-dslash --enable-sse3 \
-        --with-mdwf=${INSTALLDIR}/mdwf \
+#        --with-mdwf=${INSTALLDIR}/mdwf \
 	--with-qla=${INSTALLDIR}/qla \
 	--with-qio=${INSTALLDIR}/qio \
 	--with-qdpc=${INSTALLDIR}/qdpc \
