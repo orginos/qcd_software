@@ -20,8 +20,8 @@ mkdir  ./build_primme
 cd ./build_primme
 
 
-export PRIMME_LDFLAGS="-L/dist/scidac/atlas/lib"
-export PRIMME_LIBS=" -lprimme -lm -llapack -lblas -latlas" 
+export PRIMME_LDFLAGS="-framework Accelerate"
+export PRIMME_LIBS=" -lprimme -lm -llapack -lblas" 
 export TOP="${BUILDDIR}/build_primme"
 
 export PK_CC
