@@ -6,7 +6,7 @@
 source env.sh
 
 pushd ${SRCDIR}/hadron
-autoreconf -f
+autoreconf -f -i
 popd
 
 pushd ${BUILDDIR}
@@ -23,8 +23,8 @@ cd ./build_hadron
 ${SRCDIR}/hadron/configure --prefix=${INSTALLDIR}/hadron \
         --with-tensor="${INSTALLDIR}/tensor" \
         CC="${PK_CC}"  CXX="${PK_CXX}" \
-	CXXFLAGS="-O3 -std=c++0x" CFLAGS="" \
-        --host=x86_64-linux-gnu --build=none
+	CXXFLAGS="${PK_CXXFLAGS}" CFLAGS="${PK_CFLAGS}"
+
 ${MAKE}
 ${MAKE} install
 

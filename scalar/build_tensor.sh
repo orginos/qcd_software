@@ -21,12 +21,13 @@ cd ./build_tensor
 
 
 ${SRCDIR}/tensor/configure --prefix=${INSTALLDIR}/tensor \
-     --with-arpack \
+     --without-arpack \
      F77="gfortran" \
      ${OMPENABLE} \
      CC="${PK_CC}"  CXX="${PK_CXX}" \
-     CXXFLAGS="-I /dist/scidac/atlas/include" \
-     LDFLAGS="-L /dist/scidac/atlas/lib"  LIBS="-llapack -lcblas -latlas"
+     CXXFLAGS="-I ${INSTALLDIR}/atlas/include" \
+     LDFLAGS="-L ${INSTALLDIR}/atlas/lib"  \
+     LIBS="-lm -llapack -lcblas -latlas"
 
 ${MAKE}
 ${MAKE} install

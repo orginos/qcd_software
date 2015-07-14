@@ -23,6 +23,7 @@ module unload PrgEnv-pgi
 module load PrgEnv-gnu
 module unload gcc
 module load gcc/4.8.2
+#module load gsl
 # CUDA Has some restrictions on GCC versions. 4.0 is OK I think
 module list
 

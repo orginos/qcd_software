@@ -25,7 +25,7 @@ ${SRCDIR}/chroma/configure --prefix=${INSTALLDIR}/chroma-scalar \
         --enable-cpp-wilson-dslash --enable-sse2 --enable-sse3 ${OMPENABLE} \
         CC="${PK_CC}"  CXX="${PK_CXX}" \
 	CXXFLAGS="" CFLAGS="" \
-        --enable-sse-scalarsite-bicgstab-kernels --host=x86_64-linux-gnu --build=none
+        --host=x86_64-linux-gnu --build=none
 ${MAKE}
 ${MAKE} install
 
