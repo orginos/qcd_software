@@ -21,7 +21,7 @@ cd ./build_harom
 
 
 ${SRCDIR}/harom/configure --prefix=${INSTALLDIR}/harom \
-        --with-hadron=${INSTALLDIR}/hadron \
+        --with-hadron=${SCALAR_INSTALLDIR}/hadron \
 	--with-qdp=${INSTALLDIR}/qdp++_3d \
         --enable-sse2 --enable-sse3 ${OMPENABLE} \
         CC="${PK_CC}"  CXX="${PK_CXX}" \

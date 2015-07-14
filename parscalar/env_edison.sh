@@ -34,6 +34,7 @@ TOPDIR=`pwd`
 
 # Install directory
 INSTALLDIR=${TOPDIR}/install
+SCALAR_INSTALLDIR=${TOPDIR}/../scalar/install
 
 # Source directory
 SRCDIR=${TOPDIR}/../src
