@@ -6,8 +6,7 @@
 source env.sh
 
 pushd ${SRCDIR}/adat
-#autoreconf -f -i 
-aclocal;automake;autoconf
+autoreconf -f -i 
 popd
 
 pushd ${BUILDDIR}
@@ -23,9 +22,9 @@ cd ./build_adat
 
 ${SRCDIR}/adat/configure --prefix=${INSTALLDIR}/adat \
      CC="${PK_CC}"  CXX="${PK_CXX}" \
-     CXXFLAGS="${PK_CXXFLAGS}" \
-     CFLAGS="${PK_CFLAGS}" \
-     LDFLAGS=" "  LIBS=" "
+     CXXFLAGS="-std=c++11 -I ${INSTALLDIR}/atlas/include" \
+     LDFLAGS="-L ${INSTALLDIR}/atlas/lib"  \
+     LIBS="-lm -llapack -latlas"
 
 ${MAKE}
 ${MAKE} install
