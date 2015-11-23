@@ -21,8 +21,9 @@ module unload PrgEnv-cray
 module unload PrgEnv-intel
 module unload PrgEnv-pgi
 module load PrgEnv-gnu
-module unload gcc
-module load gcc/4.8.2
+#module unload gcc
+#module load gcc/4.8.2
+module load gcc
 # CUDA Has some restrictions on GCC versions. 4.0 is OK I think
 module list
 
@@ -33,8 +34,8 @@ MPIHOME=${MPICH_DIR}
 TOPDIR=`pwd`
 
 # Install directory
-INSTALLDIR=${TOPDIR}/install
-SCALAR_INSTALLDIR=${TOPDIR}/../scalar/install/edison
+INSTALLDIR=${TOPDIR}/install/cori
+SCALAR_INSTALLDIR=${TOPDIR}/../scalar/install/cori
 
 # Source directory
 SRCDIR=${TOPDIR}/../src
@@ -53,9 +54,8 @@ OMPFLAGS=""
 OMPENABLE=""
 
 ### COMPILER FLAGS
-PK_CXXFLAGS=${OMPFLAGS}" -O3 -std=c++11 -march=corei7-avx"
-
-PK_CFLAGS=${OMPFLAGS}" -O3 -march=corei7-avx -std=gnu99"
+PK_CXXFLAGS=${OMPFLAGS}" -O3 -std=c++11 -march=haswell"
+PK_CFLAGS=${OMPFLAGS}" -O3 -march=haswell -std=gnu99"
 
 ### Make
 MAKE="make -j 10"
