@@ -5,6 +5,10 @@
 #################
 source env.sh
 
+pushd ${SRCDIR}/qmp
+autoreconf -i -f
+popd
+
 pushd ${BUILDDIR}
 
 if [ -d ./build_qmp ]; 

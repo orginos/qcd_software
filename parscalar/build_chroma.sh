@@ -6,7 +6,7 @@
 source env.sh
 
 pushd ${SRCDIR}/chroma
-aclocal; automake; autoconf
+autoreconf -i -f
 popd
 
 pushd ${BUILDDIR}
