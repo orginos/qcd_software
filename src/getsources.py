@@ -52,7 +52,7 @@ def tarGet(pkg_name, tar_file, untar_name):
  
 # QDP++ and Chroma
 chroma = ("chroma", "GIT", "git@github.com:JeffersonLab/chroma.git","master",False)
-wm_chroma = ("wm_chroma", "GIT", "ssh://wmgit@sporades.physics.wm.edu/home/qcd/git/wm_chroma.git","devel",False)
+wm_chroma = ("wm_chroma", "GIT", "kostas@andros.physics.wm.edu:MyGit/wm_chroma.git","new_master",False)
 qdpxx = ("qdpxx", "GIT", "git@github.com:usqcd-software/qdpxx.git", "master",False)
 qdp_jit=("qdp-jit", "GIT", "git@github.com:fwinter/qdp-jit","master",False)
 qmp=("qmp", "GIT", "git@github.com:usqcd-software/qmp.git", "master",False)
@@ -82,11 +82,11 @@ libxml2=("libxml2", "TARGZ", "./libxml2.tar.gz", "libxml2",True)
 mdwf=("mdwf", "TARGZ", "./mdwf-1.1.4.tar.gz", "mdwf-1.1.4",True)
 atlas=("atlas", "TARGZ", "./atlas3.10.2.tar.gz", "atlas",True)
 itpp=("itpp", "TARGZ", "./itpp-4.3.1.tar.gz", "itpp-4.3.1",True)
-arprec=("arprec","WGET","http://crd.lbl.gov/~dhbailey/mpdist/arprec-2.2.17.tar.gz", "arprec-2.2.17",True)
-qd=("qd","WGET","http://crd.lbl.gov/~dhbailey/mpdist/qd-2.3.17.tar.gz","qd-2.3.17",True)
+#arprec=("arprec","WGET","http://crd.lbl.gov/~dhbailey/mpdist/arprec-2.2.17.tar.gz", "arprec-2.2.17",True)
+#qd=("qd","WGET","http://crd.lbl.gov/~dhbailey/mpdist/qd-2.3.17.tar.gz","qd-2.3.17",True)
 
 # FULL PACKAGE LIST -- I distribute this because I have the 'ansidecl' thing commented out
-package_list=[ chroma_utils, adat, chroma, qdpxx, harom, hadron, tensor, qdp_jit, qmp, mdwf, quda, qphix, qdpc, qio, qla, qopqdp, libxml2,primme,colorvec,redstar,wm_chroma, laplace_eigs,atlas,itpp,arprec,qd]
+package_list=[ chroma_utils, adat, chroma, qdpxx, harom, hadron, tensor, qdp_jit, qmp, mdwf, quda, qphix, qdpc, qio, qla, qopqdp, libxml2,primme,colorvec,redstar,wm_chroma, laplace_eigs,atlas,itpp]
 
 for pkg in package_list:
         (name,method,url,branchname,tagP)=pkg 
