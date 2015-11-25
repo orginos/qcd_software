@@ -20,7 +20,8 @@
 #./build_mdwf.sh
 
 ./build_qdp++.sh
+./build_qdp++_3d.sh 
 ./build_chroma.sh
 
-#./build_qdp++-double.sh
-#./build_chroma-double.sh
+./build_qdp++-double.sh
+./build_chroma-double.sh
