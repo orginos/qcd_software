@@ -57,12 +57,13 @@ PK_CFLAGS=${OMPFLAGS}" -O3  -std=gnu99 -D_REENTRANT -march=core2 -I${PK_MPI_HOME
 ##
 PK_COMS_LD="-L${MPIHOME}/lib"  
 PK_COMS_LIBS="-lmpich -lpthread -libumad -libverbs "
+PK_MPICC=mpicc
 ### Make
 MAKE="make -j 8"
 
 ### MPI
-PK_CC=mpicc
-PK_CXX=mpicxx
+PK_CC=gcc
+PK_CXX=g++
 HOST_CC=gcc
 HOST_CXX=g++
 HOST_CXXFLAGS="-O3"
