@@ -19,7 +19,7 @@
 # CUDA Has some restrictions on GCC versions. 4.0 is OK I think
 MPICH_DIR=/usr/local/ofed/mpi/gcc/mvapich-1.0.1
 
-export LD_LIBRARY_PATH=/net/lattice-fs/data/software/opt/gcc-4.9.0/lib:/net/lattice-fs/data/software/opt/gcc-4.9.0/lib64
+export LD_LIBRARY_PATH=/net/lattice-fs/data/software/opt/gcc-4.9.0/lib:/net/lattice-fs/data/software/opt/gcc-4.9.0/lib64:$MPI/lib:$MPI/lib/shared
 export PATH=/net/lattice-fs/data/software/opt/gcc-4.9.0/bin:$PATH
 
 
@@ -50,16 +50,19 @@ OMPFLAGS=""
 OMPENABLE=""
 
 ### COMPILER FLAGS
-PK_CXXFLAGS=${OMPFLAGS}" -O3 -std=c++11 "
+PK_CXXFLAGS=${OMPFLAGS}" -O3 -std=c++11  -march=core2 "
 
-PK_CFLAGS=${OMPFLAGS}" -O3  -std=gnu99"
+PK_CFLAGS=${OMPFLAGS}" -O3  -std=gnu99 -D_REENTRANT -march=core2 -I${PK_MPI_HOME}/include"
 
+##
+PK_COMS_LD="-L${MPIHOME}/lib"  
+PK_COMS_LIBS="-lmpich -lpthread -libumad -libverbs "
 ### Make
 MAKE="make -j 8"
 
 ### MPI
-PK_CC=cc
-PK_CXX=CC
+PK_CC=mpicc
+PK_CXX=mpicxx
 HOST_CC=gcc
 HOST_CXX=g++
 HOST_CXXFLAGS="-O3"
