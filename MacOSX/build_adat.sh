@@ -22,8 +22,8 @@ cd ./build_adat
 
 ${SRCDIR}/adat/configure --prefix=${INSTALLDIR}/adat \
      CC="${PK_CC}"  CXX="${PK_CXX}" \
-     CXXFLAGS=" " \
-     LDFLAGS=" "  LIBS="-framework Accelerate -llapack -lblas"
+     CXXFLAGS="-O3 -std=c++11 -I/usr/local/include" \
+     LDFLAGS="-L/usr/local/lib "  LIBS="-framework Accelerate -llapack -lblas -lgmpxx -lgmp"
 
 ${MAKE}
 ${MAKE} install

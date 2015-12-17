@@ -26,7 +26,7 @@ ${SRCDIR}/redstar/configure --prefix=${INSTALLDIR}/redstar \
     --with-hadron=${INSTALLDIR}/hadron \
     --with-adat=${INSTALLDIR}/adat \
      CXXFLAGS=" " \
-     LDFLAGS=" "  LIBS="-framework Accelerate -llapack -lblas"
+     LDFLAGS=" "  LIBS="-framework Accelerate -llapack -lblas "
 
 ${MAKE}
 ${MAKE} install

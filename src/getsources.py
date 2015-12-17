@@ -65,7 +65,7 @@ tensor=("tensor", "GIT", "git@github.com:JeffersonLab/tensor.git", "master",Fals
 redstar=("redstar", "GIT", "git@github.com:JeffersonLab/redstar.git", "devel",False)
 adat=("adat", "GIT", "git@github.com:JeffersonLab/adat.git", "master",False)
 chroma_utils=("chroma_utils", "GIT", "git@github.com:JeffersonLab/chroma_utils.git", "master",False)
-colorvec=("colorvec", "GIT", "git@github.com:JeffersonLab/colorvec.git", "master",False)
+colorvec=("colorvec", "GIT", "git@github.com:JeffersonLab/colorvec.git", "devel",False)
 laplace_eigs=("laplace_eigs", "GIT", "git@github.com:JeffersonLab/laplace_eigs.git", "native",False)
 
 # QDP/C libraries for Multigrid
