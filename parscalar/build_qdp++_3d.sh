@@ -6,7 +6,7 @@
 source env.sh
 
 pushd ${SRCDIR}/qdpxx
-autoreconf
+autoreconf -f -i
 popd
 
 pushd ${BUILDDIR}
