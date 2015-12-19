@@ -19,12 +19,15 @@ fi
 mkdir  ./build_adat
 cd ./build_adat
 
+GMP=/dist/gmp-6.0.0
 
 ${SRCDIR}/adat/configure --prefix=${INSTALLDIR}/adat \
      CC="${PK_CC}"  CXX="${PK_CXX}" \
-     CXXFLAGS="-std=c++11 -I ${INSTALLDIR}/atlas/include" \
-     LDFLAGS="-L ${INSTALLDIR}/atlas/lib"  \
-     LIBS="-lm -llapack -latlas"
+     CXXFLAGS=" ${PK_CXXFLAGS} -I ${GMP}/include " \
+     LIBS="$GMP/lib/libgmpxx.a $GMP/lib/libgmp.a"
+
+# LDFLAGS="-L ${GMP}/lib"  \
+#     LIBS="-lgmpxx -lgmp"
 
 ${MAKE}
 ${MAKE} install
