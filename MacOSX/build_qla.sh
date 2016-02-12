@@ -6,7 +6,7 @@
 source env.sh
 
 pushd ${SRCDIR}/qla
-autoreconf -f
+autoreconf -f -i
 popd
 
 pushd ${BUILDDIR}
