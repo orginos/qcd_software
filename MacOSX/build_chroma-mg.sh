@@ -18,15 +18,16 @@ then
 fi
 
 mkdir  ./build_chroma-mg
-cd ./build_chroma-scalar
+cd ./build_chroma-mg
 
 
 ${SRCDIR}/chroma/configure --prefix=${INSTALLDIR}/chroma/scalar-mg \
 	--with-qdp=${INSTALLDIR}/qdp++/scalar \
         --enable-cpp-wilson-dslash --enable-sse2 --enable-sse3 ${OMPENABLE} \
         CC="${PK_CC}"  CXX="${PK_CXX}" \
-        --with-qmp=${INSTALLDIR}/qmp \
-	CXXFLAGS="" CFLAGS=""   --enable-lapack=lapack \
+        #--with-qmp=${INSTALLDIR}/qmp \
+	CXXFLAGS="" CFLAGS=""   \
+	#--enable-lapack=lapack \
         LIBS=" -llapack -lblas -framework Accelerate"\
         --enable-sse-scalarsite-bicgstab-kernels \
         --with-qla=${INSTALLDIR}/qla \
