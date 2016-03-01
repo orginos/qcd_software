@@ -73,8 +73,8 @@ qdpc=("qdp", "GIT", "git@github.com:usqcd-software/qdp.git", "qdp1-10-0",True)
 qio=("qio", "GIT", "git@github.com:usqcd-software/qio.git", "qio2-3-9",True)
 qla=("qla", "GIT", "git@github.com:usqcd-software/qla.git", "qla1-8-0",True)
 qopqdp=("qopqdp", "GIT", "git@github.com:usqcd-software/qopqdp.git", "qopqdp0-19-3", True)
-#primme=("primme", "WGET", "http://www.cs.wm.edu/~andreas/software/primme_v1.2.tar.gz", "primme_v1.2") 
-primme=("primme", "TARGZ", "./primme_v1.2.tar.gz", "primme_v1.2",True) 
+
+primme=("primme", "GIT", "git@github.com:primme/primme.git", "master",True)
 
 # These two pacakges are annoyying to get via GITHUB, so I have to package them  :(
 
