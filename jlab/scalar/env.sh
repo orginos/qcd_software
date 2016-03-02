@@ -1,4 +1,4 @@
-. ../setup.sh
+. ../../setup.sh
 
 ##### 
 # SET UP ENVIRONMENT
@@ -17,10 +17,8 @@
 #  tedious mucking about in the src/quda/make.inc file
 #
 . /usr/share/Modules/init/bash
-module purge
-module load gcc-5.2.0
-module load mvapich2-1.8
-module list
+export PATH=/dist/gcc-5.2.0/bin:$PATH
+export LD_LIBRARY_PATH=/dist/gcc-5.2.0/lib64:/dist/gcc-5.2.0/lib:$LD_LIBRARY_PATH
 
 ### DIRECTORIES
 MPIHOME=${MPICH_DIR}
@@ -29,11 +27,10 @@ MPIHOME=${MPICH_DIR}
 TOPDIR=`pwd`
 
 # Install directory
-INSTALLDIR=${TOPDIR}/install/ib
-SCALAR_INSTALLDIR=${TOPDIR}/../scalar/install/ib
+INSTALLDIR=${TOPDIR}/install
 
 # Source directory
-SRCDIR=${TOPDIR}/../src
+SRCDIR=${TOPDIR}/../../src
 
 # Build directory
 BUILDDIR=${TOPDIR}/build
@@ -56,8 +53,8 @@ PK_CFLAGS=${OMPFLAGS}" -O3 -march=core2 -std=gnu99"
 MAKE="make -j 10"
 
 ### MPI
-PK_CC=mpicc
-PK_CXX=mpicxx
+PK_CC=cc
+PK_CXX=c++
 HOST_CC=gcc
 HOST_CXX=g++
 HOST_CXXFLAGS="-O3"
