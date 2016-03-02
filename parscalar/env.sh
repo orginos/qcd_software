@@ -16,14 +16,10 @@
 #  If your MPI wrapper is not mpicc/mpicxx you may still need to do some
 #  tedious mucking about in the src/quda/make.inc file
 #
-. /usr/share/Modules/init/bash
-module purge
-module load gcc-5.2.0
-module load mvapich2-1.8
-module list
+export PATH=/shared/openmpi-1.10.1/gcc-5.3.0/bin:/shared/gcc-5.3.0/bin:$PATH
 
 ### DIRECTORIES
-MPIHOME=${MPICH_DIR}
+MPIHOME=/shared/openmpi-1.10.1/gcc-5.3.0
 
 # The directory containing the build scripts, this script and the src/ tree
 TOPDIR=`pwd`
@@ -49,11 +45,11 @@ OMPENABLE="--enable-openmp"
 OMPENABLE=""
 
 ### COMPILER FLAGS
-PK_CXXFLAGS=${OMPFLAGS}" -O3 -std=c++0x -march=core2"
-PK_CFLAGS=${OMPFLAGS}" -O3 -march=core2 -std=gnu99"
+PK_CXXFLAGS=${OMPFLAGS}" -O3 -std=c++0x -march=corei7-avx -mtune=corei7-avx -mno-avx -mno-aes"
+PK_CFLAGS=${OMPFLAGS}" -O3 -std=gnu99 -march=corei7-avx -mtune=corei7-avx -mno-avx -mno-aes"
 
 ### Make
-MAKE="make -j 10"
+MAKE="make -j 20"
 
 ### MPI
 PK_CC=mpicc
