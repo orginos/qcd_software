@@ -70,12 +70,12 @@ primme_ldflags="-L${INSTALLDIR}/primme/lib  $PRIMME_LDFLAGS $PK_LDFLAGS"
 primme_libs="$PRIMME_LIBS"
 
 primme_ranlib="ranlib"
-primme_ar="@AR@"
+primme_ar="ar"
 
 usage()
 {
-  cat <<TTT
-Usage: primme-config [OPTIONS]
+ 
+echo "Usage: primme-config [OPTIONS]
 Options:
   [--prefix[=DIR]]
   [--exec-prefix[=DIR]]
@@ -86,8 +86,7 @@ Options:
   [--libs]
   [--ranlib]
   [--ar]
-
-TTT
+"
   exit \$1
 }
 
@@ -197,7 +196,7 @@ if test "X\${echo_ldflags}X" = "XyesX" ; then
 fi
 
 # Straight out any possible duplicates, but be careful to
-# get `-lfoo -lbar -lbaz' for `-lfoo -lbaz -lbar -lbaz'
+# get "-lfoo -lbar -lbaz" for "-lfoo -lbaz -lbar -lbaz"
 # NONONO!!! DON'T DO THIS. SOMETIMES you need a -l twice
 if test "X\${echo_libs}X" = "XyesX" ; then
   rev_libs=

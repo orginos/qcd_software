@@ -24,8 +24,9 @@ cd ./build_chroma-mg
 ${SRCDIR}/chroma/configure --prefix=${INSTALLDIR}/chroma/mpi-mg \
 	--with-qdp=${INSTALLDIR}/qdp++/mpi \
         --enable-cpp-wilson-dslash --enable-sse2 --enable-sse3 ${OMPENABLE} \
-        CC="${PK_CC}"  CXX="${PK_CXX}" \
+        CC=$PK_CC  CXX=$PK_CXX \
         --with-qmp=${INSTALLDIR}/qmp-mpi \
+        CXXFLAGS="$PK_CXXFLAGS" CFLAGS="$PK_CFLAGS" \
         LIBS=" -llapack -lblas -framework Accelerate"\
         --enable-sse-scalarsite-bicgstab-kernels \
         --with-qla=${INSTALLDIR}/qla \
