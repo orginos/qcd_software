@@ -53,9 +53,9 @@ PK_CFLAGS=${OMPFLAGS}" -O3 -march=core2 -std=gnu99"
 MAKE="make -j 10"
 
 ### MPI
-PK_CC=cc
-PK_CXX=c++
-HOST_CC=gcc
-HOST_CXX=g++
+PK_CC=/dist/gcc-5.2.0/bin/gcc
+PK_CXX=/dist/gcc-5.2.0/bin/c++
+HOST_CC=/dist/gcc-5.2.0/bin/gcc
+HOST_CXX=/dist/gcc-5.2.0/bin/g++
 HOST_CXXFLAGS="-O3"
 HOST_CFLAGS="-03"

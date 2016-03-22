@@ -25,7 +25,10 @@ ${SRCDIR}/chroma/configure --prefix=${INSTALLDIR}/chroma \
         --enable-cpp-wilson-dslash --enable-sse2 --enable-sse3 ${OMPENABLE} \
         CC="${PK_CC}"  CXX="${PK_CXX}" \
 	CXXFLAGS="" CFLAGS="" \
+        --with-lapack=lapack \
+        LIBS=" -llapack -lblas" \
         --host=x86_64-linux-gnu --build=none
+
 ${MAKE}
 ${MAKE} install
 
