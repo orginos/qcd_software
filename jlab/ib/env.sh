@@ -1,4 +1,4 @@
-. ../setup.sh
+. ../../setup.sh
 
 ##### 
 # SET UP ENVIRONMENT
