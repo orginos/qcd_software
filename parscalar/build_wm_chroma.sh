@@ -8,17 +8,17 @@ source env.sh
 
 pushd ${BUILDDIR}
 
-if [ -d ./build_wm_chroma-scalar ]; 
+if [ -d ./build_wm_chroma ]; 
 then 
-  rm -rf ./build_wm_chroma-scalar
+  rm -rf ./build_wm_chroma
 fi
 
 mkdir  ./build_wm_chroma
 cd ./build_wm_chroma
 
-CHROMA_DIR=/usr/local/scidac/chroma/scalar
+CHROMA_DIR=${INSTALLDIR}/chroma
 
-cmake -DCHROMA_PREFIX_DIR=${CHROMA_DIR} -DCMAKE_INSTALL_PREFIX=${INSTALLDIR}/wm_chroma/scalar ${SRCDIR}/wm_chroma
+cmake -DCHROMA_PREFIX_PATH=${CHROMA_DIR} -DCMAKE_INSTALL_PREFIX=${INSTALLDIR}/wm_chroma ${SRCDIR}/wm_chroma
 
 ${MAKE}
 ${MAKE} install

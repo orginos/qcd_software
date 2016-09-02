@@ -24,6 +24,7 @@ module load PrgEnv-gnu
 #module unload gcc
 #module load gcc/4.8.2
 module load gcc
+module load cmake
 # CUDA Has some restrictions on GCC versions. 4.0 is OK I think
 module list
 

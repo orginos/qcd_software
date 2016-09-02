@@ -21,8 +21,8 @@ module unload PrgEnv-cray
 module unload PrgEnv-intel
 module unload PrgEnv-pgi
 module load PrgEnv-gnu
-module unload gcc
-module load gcc/4.8.2
+module load gcc
+module load cmake
 # CUDA Has some restrictions on GCC versions. 4.0 is OK I think
 module list
 
@@ -33,7 +33,7 @@ MPIHOME=${MPICH_DIR}
 TOPDIR=`pwd`
 
 # Install directory
-INSTALLDIR=${TOPDIR}/install
+INSTALLDIR=${TOPDIR}/install/edison
 SCALAR_INSTALLDIR=${TOPDIR}/../scalar/install/edison
 
 # Source directory
