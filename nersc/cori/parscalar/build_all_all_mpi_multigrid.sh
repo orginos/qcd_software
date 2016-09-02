@@ -17,10 +17,14 @@
 ./build_qopqdp.sh
 
 # Build MDWF
-./build_mdwf.sh
+#./build_mdwf.sh
 
 ./build_qdp++.sh
 ./build_chroma.sh
+./build_wm_chroma.sh
+./build_nplqcd.sh
 
 ./build_qdp++-double.sh
 ./build_chroma-double.sh
+./build_wm_chroma-double.sh
+./build_nplqcd-double.sh
