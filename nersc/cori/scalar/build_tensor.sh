@@ -22,9 +22,9 @@ cd ./build_tensor
 
 ${SRCDIR}/tensor/configure --prefix=${INSTALLDIR}/tensor \
      --without-arpack \
-     --with-libsci \
      F77="ftn" \
      ${OMPENABLE} \
+     LIBS="-lsci_gnu " \
      CC="${PK_CC}"  CXX="${PK_CXX}" 
 
 ${MAKE}
@@ -34,3 +34,8 @@ popd
 #     CXXFLAGS=" " \
 #     LDFLAGS="-L ${INSTALLDIR}/atlas/lib"  \
 #     LIBS="-lm -llapack -lcblas -latlas"
+
+#--with-libsci \
+#     CXXFLAGS="-I$CRAY_LIBSCI_DIR/include " \
+#     CFLAGS="-I$CRAY_LIBSCI_DIR/include "
+#     LIBS="-lsci_gnu " \

@@ -19,6 +19,7 @@
 . /opt/modules/default/init/bash
 module unload PrgEnv-intel
 module load PrgEnv-gnu
+module load cmake
 # CUDA Has some restrictions on GCC versions. 4.0 is OK I think
 module list
 
