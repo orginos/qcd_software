@@ -17,8 +17,8 @@
 #  tedious mucking about in the src/quda/make.inc file
 #
 . /opt/modules/default/init/bash
-#module unload PrgEnv-intel
-#module load PrgEnv-gnu
+module unload PrgEnv-intel
+module load PrgEnv-gnu
 module load cmake
 # CUDA Has some restrictions on GCC versions. 4.0 is OK I think
 module list
@@ -49,11 +49,9 @@ PK_MPI_HOME=${MPIHOME}               # At LLNL Loading the module sets this. Oth
 OMPFLAGS=""
 OMPENABLE=""
 
-ARCHFLAGS="-xAVX -restrict"
-
 ### COMPILER FLAGS
-PK_CXXFLAGS=${OMPFLAGS}" -O3 -std=c++11 -finline-functions -fno-alias "${ARCHFLAGS}
-PK_CFLAGS=${OMPFLAGS}" -O3 -fno-alias -std=gnu99 "${ARCHFLAGS}
+PK_CXXFLAGS=${OMPFLAGS}" -O3 -std=c++11 -march=haswell"
+PK_CFLAGS=${OMPFLAGS}" -O3 -march=haswell -std=gnu99"
 
 ### Make
 MAKE="make -j 20"
