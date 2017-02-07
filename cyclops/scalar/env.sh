@@ -1,4 +1,4 @@
-. ../setup.sh
+. ../../setup.sh
 
 ##### 
 # SET UP ENVIRONMENT
@@ -17,7 +17,8 @@
 #  tedious mucking about in the src/quda/make.inc file
 #
 
-export PATH=/shared/openmpi-1.10.1/gcc-5.3.0/bin:/shared/gcc-5.3.0/bin:$PATH
+export PATH=/shared/openmpi-1.10.1/gcc-5.3.0/bin:/shared/gcc-5.3.0/bin:/shared/binutils-2.27/bin:$PATH
+export LD_LIBRARY_PATH=/shared/gcc-5.3.0/lib
 
 ### DIRECTORIES
 MPIHOME=/shared/openmpi-1.10.1/gcc-5.3.0
@@ -26,11 +27,11 @@ MPIHOME=/shared/openmpi-1.10.1/gcc-5.3.0
 TOPDIR=`pwd`
 
 # Install directory
-INSTALLDIR=${TOPDIR}/install/ib
-SCALAR_INSTALLDIR=${TOPDIR}/../scalar/install/ib
+INSTALLDIR=${TOPDIR}/install
+SCALAR_INSTALLDIR=${TOPDIR}/../scalar/install
 
 # Source directory
-SRCDIR=${TOPDIR}/../src
+SRCDIR=${TOPDIR}/../../src
 
 # Build directory
 BUILDDIR=${TOPDIR}/build
