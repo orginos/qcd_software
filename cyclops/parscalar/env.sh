@@ -1,4 +1,4 @@
-. ../setup.sh
+. ../../setup.sh
 
 ##### 
 # SET UP ENVIRONMENT
@@ -25,11 +25,11 @@ MPIHOME=/shared/openmpi-1.10.1/gcc-5.3.0
 TOPDIR=`pwd`
 
 # Install directory
-INSTALLDIR=${TOPDIR}/install/ib
-SCALAR_INSTALLDIR=${TOPDIR}/../scalar/install/ib
+INSTALLDIR=${TOPDIR}/install
+SCALAR_INSTALLDIR=${TOPDIR}/../scalar/install
 
 # Source directory
-SRCDIR=${TOPDIR}/../src
+SRCDIR=${TOPDIR}/../../src
 
 # Build directory
 BUILDDIR=${TOPDIR}/build
