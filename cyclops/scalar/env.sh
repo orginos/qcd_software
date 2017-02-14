@@ -44,7 +44,7 @@ PK_MPI_HOME=${MPIHOME}               # At LLNL Loading the module sets this. Oth
 OMPFLAGS="-fopenmp -DUSE_OMP"
 OMPENABLE="--enable-openmp"
 #OMPFLAGS=""
-OMPENABLE=""
+#OMPENABLE=""
 
 ### COMPILER FLAGS
 PK_CXXFLAGS=${OMPFLAGS}" -O3 -std=c++0x -march=corei7-avx -mtune=corei7-avx -mno-avx -mno-aes"

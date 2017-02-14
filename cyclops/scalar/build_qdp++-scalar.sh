@@ -23,7 +23,6 @@ cd ./build_qdp++-scalar
 ${SRCDIR}/qdpxx/configure \
 	--prefix=${INSTALLDIR}/qdp++-scalar \
 	--with-libxml2=${INSTALLDIR}/libxml2 \
-	--enable-sse2 --enable-sse3 \
         --enable-parallel-arch=scalar \
 	--enable-db-lite \
 	--enable-precision=single \

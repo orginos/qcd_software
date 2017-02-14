@@ -6,7 +6,7 @@
 source env.sh
 
 pushd ${SRCDIR}/qdpxx
-autoreconf -i -f 
+./autogen.sh
 popd
 
 pushd ${BUILDDIR}
@@ -22,8 +22,8 @@ cd ./build_qdp++
 
 ${SRCDIR}/qdpxx/configure \
 	--prefix=${INSTALLDIR}/qdp++ \
-	--with-libxml2=${INSTALLDIR}/libxml2 \
 	--with-qmp=${INSTALLDIR}/qmp \
+	--with-libxml2=${INSTALLDIR}/libxml2 \
         --enable-parallel-arch=parscalar \
 	--enable-db-lite \
 	--enable-precision=single \
