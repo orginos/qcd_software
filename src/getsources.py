@@ -49,6 +49,10 @@ def curlGet(pkg_name, curl_url, zipname):
 def tarGet(pkg_name, tar_file, untar_name):
     command=("tar zxf "+tar_file).split();
     call(command)
+
+def tarBGet(pkg_name, tar_file, untar_name):
+    command=("tar jxf "+tar_file).split();
+    call(command)
  
 # QDP++ and Chroma
 chroma = ("chroma", "GIT", "git@github.com:JeffersonLab/chroma.git","master",False)
@@ -75,18 +79,19 @@ qla=("qla", "GIT", "git@github.com:usqcd-software/qla.git", "qla1-8-0",True)
 qopqdp=("qopqdp", "GIT", "git@github.com:usqcd-software/qopqdp.git", "qopqdp0-19-3", True)
 
 primme=("primme", "GIT", "git@github.com:primme/primme.git", "master",True)
-
+#
+taskfarmer = ("taskfarmer", "GIT", "git@github.com:lohedges/taskfarmer.git","master",False)
 # These two pacakges are annoyying to get via GITHUB, so I have to package them  :(
 
 libxml2=("libxml2", "TARGZ", "./libxml2.tar.gz", "libxml2",True)
 mdwf=("mdwf", "TARGZ", "./mdwf-1.1.4.tar.gz", "mdwf-1.1.4",True)
-atlas=("atlas", "TARGZ", "./atlas3.10.2.tar.gz", "atlas",True)
+atlas=("atlas", "TARGZ", "./atlas3.11.38.tar.bz2", "atlas",True)
 itpp=("itpp", "TARGZ", "./itpp-4.3.1.tar.gz", "itpp-4.3.1",True)
 #arprec=("arprec","WGET","http://crd.lbl.gov/~dhbailey/mpdist/arprec-2.2.17.tar.gz", "arprec-2.2.17",True)
 #qd=("qd","WGET","http://crd.lbl.gov/~dhbailey/mpdist/qd-2.3.17.tar.gz","qd-2.3.17",True)
 
 # FULL PACKAGE LIST -- I distribute this because I have the 'ansidecl' thing commented out
-package_list=[ chroma_utils, adat, chroma, qdpxx, harom, hadron, tensor, qdp_jit, qmp, mdwf, quda, qphix, qdpc, qio, qla, qopqdp, libxml2,primme,colorvec,redstar,wm_chroma, laplace_eigs,atlas,itpp]
+package_list=[ chroma_utils, adat, chroma, qdpxx, harom, hadron, tensor, qdp_jit, qmp, mdwf, quda, qphix, qdpc, qio, qla, qopqdp, libxml2,primme,colorvec,redstar,wm_chroma, laplace_eigs,atlas,taskfarmer]
 
 for pkg in package_list:
         (name,method,url,branchname,tagP)=pkg 
@@ -100,6 +105,8 @@ for pkg in package_list:
             curlGet(name,url,branchname)
 	elif method == "TARGZ":
 	    tarGet(name,url,branchname)
+        elif method == "TARBZ":
+	    tarBGet(name,url,branchname)
 
         print
 
