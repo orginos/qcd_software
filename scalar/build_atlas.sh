@@ -6,7 +6,7 @@
 source env.sh
 
 pushd ${SRCDIR}/ATLAS
-#autoreconf -f -i 
+autoreconf -f -i 
 #aclocal;automake;autoconf
 popd
 
@@ -21,7 +21,7 @@ mkdir  ./build_atlas
 cd ./build_atlas
 
 
-${SRCDIR}/ATLAS/configure --prefix=${INSTALLDIR}/atlas 
+${SRCDIR}/ATLAS/configure -C ic ${PK_CC} -F ic "${PK_CFLAGS}" --prefix=${INSTALLDIR}/atlas 
 
 
 ${MAKE}

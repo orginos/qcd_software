@@ -71,6 +71,7 @@ adat=("adat", "GIT", "git@github.com:JeffersonLab/adat.git", "devel",False)
 chroma_utils=("chroma_utils", "GIT", "git@github.com:JeffersonLab/chroma_utils.git", "master",False)
 colorvec=("colorvec", "GIT", "git@github.com:JeffersonLab/colorvec.git", "devel",False)
 laplace_eigs=("laplace_eigs", "GIT", "git@github.com:JeffersonLab/laplace_eigs.git", "native",False)
+OpenBLAS=("OpenBLAS","GIT","git@github.com:xianyi/OpenBLAS.git","master",False)
 
 # QDP/C libraries for Multigrid
 qdpc=("qdp", "GIT", "git@github.com:usqcd-software/qdp.git", "qdp1-10-0",True)
@@ -92,6 +93,7 @@ itpp=("itpp", "TARGZ", "./itpp-4.3.1.tar.gz", "itpp-4.3.1",True)
 
 # FULL PACKAGE LIST -- I distribute this because I have the 'ansidecl' thing commented out
 package_list=[ chroma_utils, adat, chroma, qdpxx, harom, hadron, tensor, qdp_jit, qmp, mdwf, quda, qphix, qdpc, qio, qla, qopqdp, libxml2,primme,colorvec,redstar,wm_chroma, laplace_eigs,atlas,taskfarmer]
+
 
 for pkg in package_list:
         (name,method,url,branchname,tagP)=pkg 
