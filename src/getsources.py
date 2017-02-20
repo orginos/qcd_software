@@ -56,7 +56,7 @@ def tarBGet(pkg_name, tar_file, untar_name):
  
 # QDP++ and Chroma
 chroma = ("chroma", "GIT", "git@github.com:JeffersonLab/chroma.git","master",False)
-wm_chroma = ("wm_chroma", "GIT", "kostas@andros.physics.wm.edu:MyGit/wm_chroma.git","new_master",False)
+wm_chroma = ("wm_chroma", "GIT", "git@github.com:JeffersonLab/wm_chroma.git","new_master",False)
 qdpxx = ("qdpxx", "GIT", "git@github.com:usqcd-software/qdpxx.git", "master",False)
 qdp_jit=("qdp-jit", "GIT", "git@github.com:fwinter/qdp-jit","master",False)
 qmp=("qmp", "GIT", "git@github.com:usqcd-software/qmp.git", "master",False)
