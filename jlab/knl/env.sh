@@ -36,7 +36,12 @@ BUILDDIR=${TOPDIR}/build
 
 ### ENV VARS for CUDA/MPI
 # These are used by the configure script to make make.inc
-PK_MPI_HOME=${MPIHOME}               # At LLNL Loading the module sets this. Otherwise do by hand
+#PK_MPI_HOME=${MPIHOME}               # At LLNL Loading the module sets this. Otherwise do by hand
+
+export TBBLIBDIR=/dist/intel/parallel_studio_xe_2016.3.067/compilers_and_libraries_2016/linux/tbb/lib/intel64/gcc4.4
+export TBBINCDIR=/dist/intel/parallel_studio_xe_2016.3.067/compilers_and_libraries_2016/linux/tbb/include
+export VTUNEINCDIR=/dist/intel/vtune_amplifier_xe_2016.4.0.470476/include
+export VTUNELIBDIR=/dist/intel/vtune_amplifier_xe_2016.4.0.470476/lib64
 
 ### OpenMP
 #OMPFLAGS="-fopenmp -DUSE_OMP"
@@ -52,8 +57,8 @@ OMPENABLE="--enable-openmp"
 ARCHFLAGS="-xAVX -qopt-report=3 -qopt-report-phase=vec  -restrict"
 
 #ARCHFLAGS=" -march=corei7-avx -Drestrict=__restrict__" 
-PK_CXXFLAGS=${OMPFLAGS}" -g -O2 -finline-functions -fno-alias -std=c++11 "${ARCHFLAGS}
-PK_CFLAGS=${OMPFLAGS}" -g  -O2 -fno-alias -std=c99 "${ARCHFLAGS}
+PK_CXXFLAGS=${OMPFLAGS}"  -O3 -finline-functions -fno-alias -std=c++11 "${ARCHFLAGS}
+PK_CFLAGS=${OMPFLAGS}"   -O3 -fno-alias -std=c99 "${ARCHFLAGS}
 
 ### Make
 MAKE="make -j 48"
@@ -65,5 +70,5 @@ HOST_CC=icc
 HOST_CXX=icpc
 HOST_CXXFLAGS="-O3"
 HOST_CFLAGS="-O3"
-PK_CC="mpicc -cc=icc "
-PK_CXX="mpicxx -CC=icpc "
+PK_CC=mpiicc 
+PK_CXX=mpiicpc

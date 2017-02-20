@@ -36,7 +36,13 @@ BUILDDIR=${TOPDIR}/build
 
 ### ENV VARS for CUDA/MPI
 # These are used by the configure script to make make.inc
-PK_MPI_HOME=${MPIHOME}               # At LLNL Loading the module sets this. Otherwise do by hand
+#PK_MPI_HOME=${MPIHOME}               # At LLNL Loading the module sets this. Otherwise do by hand
+
+export TBBLIBDIR=/dist/intel/parallel_studio_xe_2016.3.067/compilers_and_libraries_2016/linux/tbb/lib/intel64/gcc4.4
+export TBBINCDIR=/dist/intel/parallel_studio_xe_2016.3.067/compilers_and_libraries_2016/linux/tbb/include
+export VTUNEINCDIR=/dist/intel/vtune_amplifier_xe_2016.4.0.470476/include
+export VTUNELIBDIR=/dist/intel/vtune_amplifier_xe_2016.4.0.470476/lib64
+
 
 ### OpenMP
 #OMPFLAGS="-fopenmp -DUSE_OMP"
