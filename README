@@ -12,3 +12,32 @@ scalar directory untested.
 
 Sources updated on the AM of Nov 3. We had some build fails in the nightlies. Hopefully
 I don't have duff sources. Actually the ones I tested built fine on Edison
+
+
+==== USING QPHIX ===
+
+Hi Kostas, 
+Here are the command line arguments you need for the non-JIT version of the code
+
+-by 4  -bz 4   # this is the cache blocking size
+                     # your Y and Z extents should be divisible by 4
+
+-pxy 0 -pxyz 0 # Pad factors. I think if you miss these they get defaulted
+
+-c 1               # Number of cores. in all MPI Mode it will be 1
+-sy 1 -sz 1    # the dimensions of the Sy x Sz grid of hyperthreads
+                    # in your case this will be 1x1
+
+-minct 1        # Number of NUMA domains (in your case it will be 1)
+       		    # If you leave these off they may be defaulted.
+
+-poolsize N   # allocate a pool of N Gigabytes per MPI process.
+                    # decimal fractions are allowed, e.g. 0.8 is OK
+		           # Since you have 64 processes a poolsize of 1 may
+			          # be a good place to start
+
+as well as your regular -geom -iogeom and -i, -o and other flags
+
+Best, 
+B
+==============
