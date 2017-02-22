@@ -1,8 +1,8 @@
 #!/bin/bash 
 
 #BUILD QDP++ AND CHROMA IN PARALLEL WITHOUT QUDA
-./purge_build.sh
-./purge_install.sh
+\rm -rf build
+\rm -rf install
 
 ./build_libxml2.sh
 
@@ -14,15 +14,20 @@
 ./build_redstar.sh
 
 # BUILD Single Prec QDP++ -- sufficient for tutorials
-./build_qdp++-scalar.sh
-./build_qdp++-scalar_3d.sh
+./build_qdp++.sh
+./build_qdp++_3d.sh
 
 
 #Here is where HAROM builds
 ./build_harom.sh
 
 # IF you feel brave you can build chroma too
+./build_dslash_scalar_avx_s4.sh
+
 ./build_chroma.sh
+
+#
+./build_wm_chroma.sh
 
 #
 #./build_qdp++-double-scalar.sh

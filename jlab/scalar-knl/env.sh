@@ -16,6 +16,9 @@
 #  If your MPI wrapper is not mpicc/mpicxx you may still need to do some
 #  tedious mucking about in the src/quda/make.inc file
 #
+export PATH=/dist/gcc-4.9.2/bin:$PATH
+export LD_LIBRARY_PATH=/dist/gcc-4.9.2/lib64:$LD_LIBRARY_PATH
+
 source /dist/intel/parallel_studio_xe_2016.3.067/psxevars.sh intel64
 
 ### DIRECTORIES
