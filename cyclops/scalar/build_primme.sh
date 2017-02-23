@@ -20,8 +20,8 @@ mkdir  ./build_primme
 cd ./build_primme
 
 
-export PRIMME_LDFLAGS="-framework Accelerate"
-export PRIMME_LIBS=" -lprimme -lm -llapack -lblas" 
+export PRIMME_LDFLAGS="-L/usr/lib64"
+export PRIMME_LIBS=" -lprimme -lm -llapack  -lblas -lgfortran " 
 export TOP="${BUILDDIR}/build_primme"
 
 export PK_CC

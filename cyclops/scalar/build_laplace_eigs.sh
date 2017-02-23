@@ -16,14 +16,13 @@ mkdir  ./build_laplace_eigs
 cd ./build_laplace_eigs
 
 cp -p -r ${SRCDIR}/laplace_eigs/* .
-mv Makefile Makefile.orig
-cat Makefile.orig | sed 's/ARCH =/#ARCH/;s/^QDP_CONFIG/#QDP_CONFIG/;s/^PRIMME/#PRIME/' >Makefile
+\rm -rf Makefile
+mv Makefile.in Makefile
 
 
-export ARCH=edison
-export PRIMME=${INSTALLDIR}/primme 
-export QDP_CONFIG_ND3=${INSTALLDIR}/qdp++-scalar_3d/bin/qdp++-config 
-export QDP_CONFIG_ND4=${INSTALLDIR}/qdp++-scalar/bin/qdp++-config 
+export PRIMME_ENV=${INSTALLDIR}/primme 
+export QDP_CONFIG_ND3_ENV=${INSTALLDIR}/qdp++-scalar_3d/bin/qdp++-config 
+export QDP_CONFIG_ND4_ENV=${INSTALLDIR}/qdp++-scalar/bin/qdp++-config 
 
 make 
 
