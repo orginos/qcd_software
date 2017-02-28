@@ -7,20 +7,19 @@ source env.sh
 
 pushd ${BUILDDIR}
 
-if [ -d ./build_laplace_eigs ]; 
+if [ -d ./build_mg_vecs ]; 
 then 
-  rm -rf ./build_laplace_eigs
+  rm -rf ./build_mg_vecs
 fi
 
-mkdir  ./build_laplace_eigs
-cd ./build_laplace_eigs
+mkdir  ./build_mg_vecs
+cd ./build_mg_vecs
 
-pushd ${SRCDIR}/laplace_eigs
-git checkout native
+pushd ${SRCDIR}/mg_vecs
 git branch
 popd
 
-cp -p -r ${SRCDIR}/laplace_eigs/* .
+cp -p -r ${SRCDIR}/mg_vecs/* .
 \rm -rf Makefile
 mv Makefile.in Makefile
 
@@ -31,13 +30,13 @@ export QDP_CONFIG_ND4_ENV=${INSTALLDIR}/qdp++-scalar/bin/qdp++-config
 
 make 
 
-if [ -d $INSTALLDIR/laplace_eigs ];
+if [ -d $INSTALLDIR/mg_vecs ];
 then
-  \rm -rf $INSTALLDIR/laplace_eigs
+  \rm -rf $INSTALLDIR/mg_vecs
 fi
 
-mkdir $INSTALLDIR/laplace_eigs
+mkdir $INSTALLDIR/mg_vecs
 
-\cp laplace_eigs vecs_combine_4d vecs_combine_3d $INSTALLDIR/laplace_eigs
+\cp mg_evecs $INSTALLDIR/mg_vecs
 
 popd
