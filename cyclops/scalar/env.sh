@@ -56,6 +56,7 @@ MAKE="make -j 20"
 ### MPI
 PK_CC=gcc
 PK_CXX=g++
+PK_F77=gfortran
 HOST_CC=gcc
 HOST_CXX=g++
 HOST_CXXFLAGS="-O3 -march=corei7-avx -mtune=corei7-avx -mno-avx -mno-aes"

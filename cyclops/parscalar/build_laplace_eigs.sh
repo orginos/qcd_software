@@ -16,7 +16,7 @@ mkdir  ./build_laplace_eigs
 cd ./build_laplace_eigs
 
 pushd ${SRCDIR}/laplace_eigs
-git checkout native
+git checkout parallel
 git branch
 popd
 
@@ -25,9 +25,10 @@ cp -p -r ${SRCDIR}/laplace_eigs/* .
 mv Makefile.in Makefile
 
 
-export PRIMME_ENV=${INSTALLDIR}/primme 
-export QDP_CONFIG_ND3_ENV=${INSTALLDIR}/qdp++-scalar_3d/bin/qdp++-config 
-export QDP_CONFIG_ND4_ENV=${INSTALLDIR}/qdp++-scalar/bin/qdp++-config 
+export ARCH="QMP"
+export PRIMME_ENV=${SCALAR_INSTALLDIR}/primme 
+export QDP_CONFIG_ND3_ENV=${INSTALLDIR}/qdp++_3d/bin/qdp++-config 
+export QDP_CONFIG_ND4_ENV=${INSTALLDIR}/qdp++/bin/qdp++-config 
 
 make 
 

@@ -29,7 +29,7 @@ export PK_F77
 export PK_CFLAGS
 export INSTALLDIR
 
-cp -r ${SRCDIR}/primme/* .
+cp -r ${SRCDIR}/primme_v1.2/* .
 
 
 #${MAKE} 
