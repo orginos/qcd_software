@@ -17,16 +17,16 @@
 #  tedious mucking about in the src/quda/make.inc file
 #
 . /usr/share/Modules/init/bash
-module load gcc-5.2.0
+module load gcc-6.2.0
 module load mvapich2-1.8
 module list
 
-export PATH=/dist/gcc-5.2.0/bin:$PATH
-export LD_LIBRARY_PATH=/dist/gcc-5.2.0/lib64:/dist/gcc-5.2.0/lib:$LD_LIBRARY_PATH
+export PATH=/dist/gcc-6.2.0/bin:$PATH
+export LD_LIBRARY_PATH=/dist/gcc-4.9.8/lib64:/dist/gcc-6.2.0/lib:$LD_LIBRARY_PATH
 
 
 ### DIRECTORIES
-MPIHOME=${MPICH_DIR}
+#MPIHOME=${MPICH_DIR}
 
 # The directory containing the build scripts, this script and the src/ tree
 TOPDIR=`pwd`
@@ -49,10 +49,10 @@ PK_MPI_HOME=${MPIHOME}               # At LLNL Loading the module sets this. Oth
 OMPFLAGS="-fopenmp -DUSE_OMP"
 OMPENABLE="--enable-openmp"
 #OMPFLAGS=""
-OMPENABLE=""
+#OMPENABLE=""
 
 ### COMPILER FLAGS
-PK_CXXFLAGS=${OMPFLAGS}" -O3 -std=c++0x -march=core2"
+PK_CXXFLAGS=${OMPFLAGS}" -O3 -std=c++11 -march=core2 -fpermissive"
 PK_CFLAGS=${OMPFLAGS}" -O3 -march=core2 -std=gnu99"
 
 ### Make
