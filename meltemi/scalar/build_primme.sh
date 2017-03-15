@@ -21,7 +21,7 @@ cd ./build_primme_v1.2
 
 
 export PRIMME_LDFLAGS="-L${MKLROOT}/lib/intel64"
-export PRIMME_LIBS=" -lprimme -lm -Wl,--start-group ${MKLROOT}/lib/intel64/libmkl_intel_ilp64.a ${MKLROOT}/lib/intel64/libmkl_sequential.a ${MKLROOT}/lib/intel64/libmkl_core.a -Wl,--end-group" 
+export PRIMME_LIBS=" -lprimme -lm $MKL_LINK"
 export TOP="${BUILDDIR}/build_primme"
 
 export PK_CC

@@ -25,6 +25,7 @@ ${SRCDIR}/adat/configure --prefix=${INSTALLDIR}/adat \
     CC="${PK_CC}"  CXX="${PK_CXX}" \
     CXXFLAGS=" ${PK_CXXFLAGS} -I${GMP}/include" \
     LDFLAGS="-L ${GMP}/lib"  \
+    --host=x86_64-linux-gnu 
     LIBS="-lgmpxx -lgmp" 
 
 #    LIBS="$GMP/lib/libgmpxx.a $GMP/lib/libgmp.a"

@@ -23,11 +23,20 @@ cd ./build_chroma
 ####
 #  DISABLE C++ Dslash because of include file conflicts
 ###
-${SRCDIR}/chroma/configure --prefix=${INSTALLDIR}/chroma \
+${SRCDIR}/chroma/configure --prefix=${INSTALLDIR}/chroma_qphix \
 	--with-qdp=${INSTALLDIR}/qdp++ \
 	--with-qmp=${INSTALLDIR}/qmp \
-        --enable-cpp-wilson-dslash \
+        --enable-cpp-wilson-dslash --enable-sse2 \
          ${OMPENABLE} \
+        --with-qphix-solver=${INSTALLDIR}/dslash-avx-s4 \
+        --enable-qphix-solver-arch=avx512 \
+        --enable-qphix-solver-soalen=4 \
+        --enable-qphix-solver-compress12 \
+        --enable-qphix-solver-inner-type=f \
+        --enable-qphix-solver-inner-soalen=4 \
+	--enable-ittnotify \
+	--enable-static-packed-gauge \
+	--enable-fused-clover-deriv-loops \
        CC="${PK_CC}"  CXX="${PK_CXX}" \
 	CXXFLAGS="${PK_CXXFLAGS} -I${VTUNEINCDIR} -g" CFLAGS="${PK_CFLAGS}" \
 	LDFLAGS="-Wl,-zmuldefs  -L${VTUNELIBDIR} -L${TBBINCDIR}" LIBS=" -ltbb -ltbbmalloc -littnotify -lpthread" \

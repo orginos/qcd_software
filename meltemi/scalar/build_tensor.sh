@@ -31,6 +31,7 @@ ${SRCDIR}/tensor/configure --prefix=${INSTALLDIR}/tensor \
      CFLAGS="${PK_CFLAGS}" \
      FFLAGS="${PK_FCFLAGS}" \
      LIBS="" \
+     --host=x86_64-linux-gnu \
      ${OMPENABLE}
 
 ${MAKE}

@@ -22,13 +22,12 @@
 ./build_harom.sh
 
 # IF you feel brave you can build chroma too
-./build_dslash_scalar_avx_s4.sh
+#./build_dslash_scalar_avx_s4.sh
 
 ./build_chroma.sh
 
 #
 ./build_wm_chroma.sh
-
 #
 #./build_qdp++-double-scalar.sh
 #./build_chroma-double-scalar.sh
