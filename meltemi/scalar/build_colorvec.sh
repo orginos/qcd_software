@@ -24,7 +24,8 @@ ${SRCDIR}/colorvec/configure --prefix=${INSTALLDIR}/colorvec \
     --with-hadron=${INSTALLDIR}/hadron \
     --with-adat=${INSTALLDIR}/adat \
      CC="${PK_CC}"  CXX="${PK_CXX}" \
-     CXXFLAGS="${PK_CXXFLAGS} " 
+     CXXFLAGS="${PK_CXXFLAGS} " \
+      --host=x86_64-linux-gnu
 
 ${MAKE}
 ${MAKE} install

@@ -27,11 +27,10 @@ ${SRCDIR}/tensor/configure --prefix=${INSTALLDIR}/tensor \
      --with-backend=mkl \
      F77="$PK_FC" \
      CC="${PK_CC}"  CXX="${PK_CXX}" \
-     CXXFLAGS="${PK_CXXFLAGS}" \
-     CFLAGS="${PK_CFLAGS}" \
-     FFLAGS="${PK_FCFLAGS}" \
+     CXXFLAGS="${PK_CXXFLAGS} -xAVX" \
+     CFLAGS="${PK_CFLAGS} -xAVX" \
+     FFLAGS="${PK_FCFLAGS} -xAVX" \
      LIBS="" \
-     --host=x86_64-linux-gnu \
      ${OMPENABLE}
 
 ${MAKE}

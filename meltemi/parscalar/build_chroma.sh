@@ -27,7 +27,7 @@ ${SRCDIR}/chroma/configure --prefix=${INSTALLDIR}/chroma \
 	--with-qdp=${INSTALLDIR}/qdp++ \
 	--with-qmp=${INSTALLDIR}/qmp \
          ${OMPENABLE} \
-       --enable-cpp-wilson-dslash \
+       --enable-cpp-wilson-dslash --enable-sse2 \
        CC="${PK_CC}"  CXX="${PK_CXX}" \
 	CXXFLAGS="${PK_CXXFLAGS} -I${VTUNEINCDIR} -g" CFLAGS="${PK_CFLAGS}" \
 	LDFLAGS="-Wl,-zmuldefs  -L${VTUNELIBDIR} -L${TBBINCDIR}" LIBS=" -ltbb -ltbbmalloc -littnotify -lpthread" \

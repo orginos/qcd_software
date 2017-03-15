@@ -61,8 +61,8 @@ fi
 echo "MKL INCLUDE FLAGS:" $MKL_INC
 echo "MKL LINKL FLAGS:" $MKL_LINK
 
-PAR_STUDIO=/usr/local/intel-2017/compilers_and_libraries_2017.0.098
-VTUNE=/usr/local/intel-2017/vtune_amplifier_xe
+PAR_STUDIO=/usr/local/intel-2017/parallel_studio_xe_2017.2.050
+VTUNE=VTUNE=$PAR_STUDIO/vtune_amplifier_xe_2017
 export TBBLIBDIR=$PAR_STUDIO/compilers_and_libraries_2017/linux/tbb/lib/intel64/gcc4.7
 export TBBINCDIR=$PAR_STUDIO/compilers_and_libraries_2017/linux/tbb/include
 export VTUNEINCDIR=$VTUNE/include
