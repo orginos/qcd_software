@@ -67,6 +67,7 @@ export TBBLIBDIR=$PAR_STUDIO/compilers_and_libraries_2017/linux/tbb/lib/intel64/
 export TBBINCDIR=$PAR_STUDIO/compilers_and_libraries_2017/linux/tbb/include
 export VTUNEINCDIR=$VTUNE/include
 export VTUNELIBDIR=$VTUNE/lib64
+source  $PAR_STUDIO/psxevars.sh intel64
 
 
 ### OpenMP

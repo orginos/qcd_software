@@ -68,7 +68,7 @@ def tarBGet(pkg_name, tar_file, untar_name):
 chroma = ("chroma", "GIT", "git@github.com:JeffersonLab/chroma.git","master",False)
 wm_chroma = ("wm_chroma", "GIT", "git@github.com:JeffersonLab/wm_chroma.git","new_master",False)
 qdpxx = ("qdpxx", "GIT", "git@github.com:usqcd-software/qdpxx.git", "master",False)
-qdp_jit=("qdp-jit", "GIT", "git@github.com:fwinter/qdp-jit","master",False)
+qdp_jit=("qdp-jit", "GIT", "git@github.com:fwinter/qdp-jit","llvm-cpu-inner-loop-no11-qshift",False)
 qmp=("qmp", "GIT", "git@github.com:usqcd-software/qmp.git", "master",False)
 quda=("quda", "GIT", "git@github.com:lattice/quda.git", "master",False)
 qphix=("qphix", "GIT", "git@github.com:JeffersonLab/qphix.git", "master",False)

@@ -8,9 +8,9 @@
 
 #the spectroscopy tools
 ./build_adat.sh
-./build_colorvec.sh
 ./build_tensor.sh
 ./build_hadron.sh
+./build_colorvec.sh
 ./build_redstar.sh
 
 # BUILD Single Prec QDP++ -- sufficient for tutorials
