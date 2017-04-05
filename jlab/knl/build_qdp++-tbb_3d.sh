@@ -38,7 +38,8 @@ ${SRCDIR}/qdpxx/configure \
 	CC="${PK_CC}" \
 	LDFLAGS="-L${TBBLIBDIR}" LIBS="-ltbb -ltbbmalloc -lpthread" \
         ${OMPENABLE} \
-      --enable-tbb-pool-allocator
+        --host=x86_64-linux-gnu --build=none \
+        --enable-tbb-pool-allocator
 
 ${MAKE}
 ${MAKE} install
