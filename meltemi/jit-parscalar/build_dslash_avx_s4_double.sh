@@ -21,8 +21,8 @@ cd ./build_dslash_avx_s4
 
 
 ${SRCDIR}/qphix/configure \
-    --prefix=${INSTALLDIR}/dslash-avx-s4 \
-    --with-qdp=${INSTALLDIR}/qdp++ \
+    --prefix=${INSTALLDIR}/dslash-avx-s4-double \
+    --with-qdp=${INSTALLDIR}/qdp++-double \
     --enable-proc=${PK_AVX_VERSION} \
     --enable-soalen=4 \
     --enable-clover \

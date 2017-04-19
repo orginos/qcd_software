@@ -30,7 +30,7 @@ ${SRCDIR}/qdp-jit-llvm-x86/configure \
 	--enable-parallel-io \
         --enable-dml-output-buffering \
         --disable-generics \
-	--enable-alignment=128 \
+	--enable-alignment=64 \
 	--enable-tbb-pool-allocator \
         CXXFLAGS=" -I${TBBINCDIR} ${PK_CXXFLAGS}" \
 	CFLAGS="${PK_CFLAGS}" \
