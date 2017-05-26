@@ -6,7 +6,7 @@
 source ./env.sh
 
 pushd ${SRCDIR}/qphix
-aclocal; automake; autoconf
+autoreconf -f -i
 popd
 
 pushd ${BUILDDIR}

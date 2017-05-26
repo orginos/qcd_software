@@ -41,7 +41,8 @@ BUILDDIR=${TOPDIR}/build
 # These are used by the configure script to make make.inc
 #PK_MPI_HOME=${MPIHOME}               # At LLNL Loading the module sets this. Otherwise do by hand
 PAR_STUDIO=/usr/local/intel-2017/parallel_studio_xe_2017.2.050
-VTUNE=$PAR_STUDIO/vtune_amplifier_xe_2017
+#PAR_STUDIO=/usr/local/intel-2016/parallel_studio_xe_2016.4.072
+VTUNE=$PAR_STUDIO/vtune_amplifier_xe
 export TBBLIBDIR=$PAR_STUDIO/linux/tbb/lib/intel64/gcc4.7
 export TBBINCDIR=$PAR_STUDIO/linux/tbb/include
 export VTUNEINCDIR=$VTUNE/include

@@ -39,7 +39,7 @@ ${SRCDIR}/chroma/configure --prefix=${INSTALLDIR}/chroma_qphix \
 	--enable-fused-clover-deriv-loops \
        CC="${PK_CC}"  CXX="${PK_CXX}" \
 	CXXFLAGS="${PK_CXXFLAGS} -I${VTUNEINCDIR} -g" CFLAGS="${PK_CFLAGS}" \
-	LDFLAGS="-Wl,-zmuldefs  -L${VTUNELIBDIR} -L${TBBINCDIR}" LIBS=" -ltbb -ltbbmalloc -littnotify -lpthread" \
+	LDFLAGS="-Wl,-zmuldefs  -L${VTUNELIBDIR} -L${TBBINCDIR}" LIBS=" -ltbb -ltbbmalloc -lpthread" \
         --host=x86_64-linux-gnu --build=none
 
 #       --enable-static-packed-gauge \
