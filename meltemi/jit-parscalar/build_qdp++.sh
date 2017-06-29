@@ -11,13 +11,13 @@ popd
 
 pushd ${BUILDDIR}
 
-if [ -d ./build_qdp++ ]; 
+if [ -d ./build_qdp++-double ]; 
 then 
-  rm -rf ./build_qdp++
+  rm -rf ./build_qdp++-double
 fi
 
-mkdir  ./build_qdp++
-cd ./build_qdp++
+mkdir  ./build_qdp++-double
+cd ./build_qdp++-double
 
 
 ${SRCDIR}/qdp-jit-llvm-x86/configure \
