@@ -30,7 +30,7 @@ ${SRCDIR}/chroma/configure --prefix=${INSTALLDIR}/chroma \
         LDFLAGS="-Wl,-zmuldefs" LIBS="-lz" \
         --enable-jit-clover \
         --host=x86_64-linux-gnu --build=none \
-        --with-qphix-solver=${INSTALLDIR}/dslash-avx-s4 \
+        --with-qphix-solver=${INSTALLDIR}/qphix_avx512 \
         --enable-qphix-solver-arch=avx \
         --enable-qphix-solver-soalen=4 \
         --enable-qphix-solver-compress12 \

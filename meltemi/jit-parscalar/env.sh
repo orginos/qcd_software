@@ -7,11 +7,14 @@
 # Source whatever it is you need to set up your compiler here.
 # Change this to use your compiler.
 
+export PYTHON_LIBRARIES=$PYTHONPATH 
+export PYTHON_INCLUDE_DIRS=/usr/local/intel64/knl/intel/intelpython3/include
 
-# These are used by the configure script to make make.inc                                                       
-#PK_MPI_HOME=${MPIHOME}               # At LLNL Loading the module sets this. Otherwise do by hand             
+# These are used by the configure script to make make.inc                                              
+#PK_MPI_HOME=${MPIHOME}               # At LLNL Loading the module sets this. Otherwise do by hand    
 PAR_STUDIO=/usr/local/intel-2017/parallel_studio_xe_2017.2.050
-#PAR_STUDIO=/usr/local/intel-2016/parallel_studio_xe_2016.4.072                                                  
+#PAR_STUDIO=/usr/local/intel-2016/parallel_studio_xe_2016.4.072                                
+          
 VTUNE=$PAR_STUDIO/vtune_amplifier_xe
 export TBBLIBDIR=$PAR_STUDIO/linux/tbb/lib/intel64/gcc4.7
 export TBBINCDIR=$PAR_STUDIO/linux/tbb/include
@@ -21,7 +24,7 @@ source  $PAR_STUDIO/psxevars.sh intel64
 mpsvars.sh --vtune
 
 export GCC_VERSION="6.3.0"
-export PATH=/usr/local/gcc-${GCC_VERSION}/bin:/usr/local/binutils-2.27/bin:/apps/python/python-2.7.1/bin:$PATH
+export PATH=/usr/local/gcc-${GCC_VERSION}/bin:$PATH
 export LD_LIBRARY_PATH=/usr/local/gcc-${GCC_VERSION}/lib64:/usr/local/gcc-${GCC_VERSION}/lib:/usr/lib:$LD_LIBRARY_PATH
 
 TOPDIR=`pwd`
@@ -69,7 +72,7 @@ export VTUNELIBDIR=$PAR_STUDIO/vtune_amplifier_xe_2017/lib64
 #export VTUNEINCDIR=/dist/intel/vtune_amplifier_xe_2016.4.0.470476/include
 #export VTUNELIBDIR=/dist/intel/vtune_amplifier_xe_2016.4.0.470476/lib64
 
-
+PK_QPHIX_ISA="avx512"
 ARCHFLAGS="-xMIC-AVX512"
 export PK_AVX_VERSION="AVX512"
 #ARCHFLAGS="-xCORE-AVX2"
@@ -83,11 +86,18 @@ PK_CFLAGS=${OMPFLAGS}" -g -O3 -std=c99 "${ARCHFLAGS}" "
 ### Make
 MAKE="make -j 10"
 
+# Parallel make level
+PK_TARGET_JN="24"
+
 # Compilers for compiling package (passed as CC to ./configure throghout) 
 #PK_CC=icc
 #PK_CXX=icpc
 PK_CC=mpiicc
 PK_CXX=mpiicpc
+# Host C++ to compile code generator 
+PK_HOST_CXX=g++
+PK_HOST_CXXFLAGS="-g -O3 -std=c++11"
+
 #GNU Wrappers
 #PK_CC=mpicc
 #PK_CXX=mpicxx
