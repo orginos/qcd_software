@@ -8,7 +8,8 @@
 # Change this to use your compiler.
 
 #source /dist/intel/parallel_studio_xe_2016.3.067/psxevars.sh intel64
-PAR_STUDIO=/dist/intel/parallel_studio_xe_2017/parallel_studio_xe_2017.2.050/
+#PAR_STUDIO=/dist/intel/parallel_studio_xe_2017/parallel_studio_xe_2017.2.050/
+PAR_STUDIO=/dist/intel/parallel_studio_xe_2016.3.067/
 VTUNE=$PAR_STUDIO/vtune_amplifier_xe_2017
 export TBBLIBDIR=$PAR_STUDIO/linux/tbb/lib/intel64/gcc4.7
 export TBBINCDIR=$PAR_STUDIO/linux/tbb/include
