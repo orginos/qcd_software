@@ -3,7 +3,7 @@
 #################
 # BUILD QMP
 #################
-source env.sh
+source ./env.sh
 
 pushd ${BUILDDIR}
 
@@ -15,11 +15,12 @@ fi
 mkdir  ./build_libxml2
 cd ./build_libxml2
 
-${SRCDIR}/libxml2/configure --prefix=${INSTALLDIR}/libxml2 -host=x86_64-unknown-linux \
+${SRCDIR}/libxml2/configure --prefix=${INSTALLDIR}/libxml2 -host=none-none-none \
     --build=x86_64-suse-linux \
     CC="${PK_CC}" \
     CFLAGS="${PK_CFLAGS}" \
     --disable-shared \
+    --enable-static \
     --without-zlib \
     --without-python \
     --without-readline \

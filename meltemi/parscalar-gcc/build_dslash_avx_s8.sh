@@ -6,7 +6,7 @@
 source ./env.sh
 
 pushd ${SRCDIR}/qphix
-aclocal; automake; autoconf
+autoreconf -f -i
 popd
 
 pushd ${BUILDDIR}
@@ -21,12 +21,11 @@ cd ./build_dslash_avx_s4
 
 
 ${SRCDIR}/qphix/configure \
-    --prefix=${INSTALLDIR}/dslash-avx-s4 \
+    --prefix=${INSTALLDIR}/dslash-avx-s8 \
     --with-qdp=${INSTALLDIR}/qdp++ \
     --enable-proc=${PK_AVX_VERSION} \
-    --enable-soalen=4 \
+    --enable-soalen=8 \
     --enable-clover \
-    --enable-qdpjit \
     --disable-cean \
     --enable-qdpalloc \
     CXXFLAGS="${PK_CXXFLAGS}" \

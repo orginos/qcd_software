@@ -21,14 +21,13 @@ cd ./build_dslash_avx_s4
 
 
 ${SRCDIR}/qphix/configure \
-    --prefix=${INSTALLDIR}/dslash-avx-s4-double \
-    --with-qdp=${INSTALLDIR}/qdp++-double \
+    --prefix=${INSTALLDIR}/dslash-avx-s4-testing \
+    --with-qdp=${INSTALLDIR}/qdp++ \
     --enable-proc=${PK_AVX_VERSION} \
     --enable-soalen=4 \
     --enable-clover \
-    --enable-qdpjit \
     --disable-cean \
-    --enable-qdpalloc \
+    --enable-mm-malloc \
     CXXFLAGS="${PK_CXXFLAGS}" \
     CFLAGS="${PK_CFLAGS}" \
     CXX="${PK_CXX}" \
