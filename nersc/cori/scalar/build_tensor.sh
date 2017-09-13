@@ -21,16 +21,21 @@ cd ./build_tensor
 
 
 ${SRCDIR}/tensor/configure --prefix=${INSTALLDIR}/tensor \
-     --without-arpack \
+     --with-arpack \
+--with-libsci \
+     LIBS="-lsci_intel " \
      F77="ftn" \
      ${OMPENABLE} \
-     LIBS="-lsci_gnu " \
      CC="${PK_CC}"  CXX="${PK_CXX}" 
 
 ${MAKE}
 ${MAKE} install
 
 popd
+
+
+
+
 #     CXXFLAGS=" " \
 #     LDFLAGS="-L ${INSTALLDIR}/atlas/lib"  \
 #     LIBS="-lm -llapack -lcblas -latlas"
