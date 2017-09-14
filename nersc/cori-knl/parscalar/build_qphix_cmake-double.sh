@@ -29,6 +29,7 @@ cmake -Disa=${PK_QPHIX_ISA} \
       -Dcean=FALSE \
       -Dqdpalloc=FALSE \
       -Dqdpjit=FALSE  \
+      -Dtm_clover=TRUE \
       -Dtesting=TRUE \
       -DCMAKE_EXE_LINKER_FLAGS="-lpthread" \
       ${SRCDIR}/qphix

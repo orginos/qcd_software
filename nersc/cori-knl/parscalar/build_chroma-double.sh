@@ -28,7 +28,7 @@ ${SRCDIR}/chroma/configure --prefix=${INSTALLDIR}/chroma-double \
 	--with-qmp=${INSTALLDIR}/qmp \
 	--enable-cpp-wilson-dslash --enable-sse2 \
          ${OMPENABLE} \
-        --with-qphix-solver=${INSTALLDIR}/dslash-avx-s4 \
+        --with-qphix-solver=${INSTALLDIR}/qphix-double_avx512 \
         --enable-qphix-solver-arch=avx512 \
         --enable-qphix-solver-soalen=4 \
         --enable-qphix-solver-compress12 \
@@ -46,9 +46,10 @@ ${SRCDIR}/chroma/configure --prefix=${INSTALLDIR}/chroma-double \
 
 
 ${MAKE}
+${MAKE} install
 
 #  LDFLAGS="-Wl,-zmuldefs  -L${VTUNELIBDIR} -L${TBBINCDIR}" LIBS=" -ltbb -ltbbmalloc -littnotify -lpthread" \
-#${MAKE} install
+#
 
 #       --with-qmp=${INSTALLDIR}/qmp \
 #        --with-qphix-solver=${INSTALLDIR}/dslash-avx-s4 \

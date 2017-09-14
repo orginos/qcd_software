@@ -46,9 +46,10 @@ ${SRCDIR}/chroma/configure --prefix=${INSTALLDIR}/chroma \
 
 
 ${MAKE}
+${MAKE} install
 
 #  LDFLAGS="-Wl,-zmuldefs  -L${VTUNELIBDIR} -L${TBBINCDIR}" LIBS=" -ltbb -ltbbmalloc -littnotify -lpthread" \
-#${MAKE} install
+#
 
 #       --with-qmp=${INSTALLDIR}/qmp \
 #        --with-qphix-solver=${INSTALLDIR}/dslash-avx-s4 \
