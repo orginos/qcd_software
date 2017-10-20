@@ -23,6 +23,7 @@ cd ./build_chroma_utils
 ${SRCDIR}/chroma_utils/configure --prefix=${INSTALLDIR}/chroma_utils \
      CC="${PK_CC}"  CXX="${PK_CXX}" \
      CXXFLAGS=" " \
+     --with-libxml2=${INSTALLDIR}/libxml2 \
      LDFLAGS=" "  LIBS="-framework Accelerate -llapack -lblas"
 
 ${MAKE}
