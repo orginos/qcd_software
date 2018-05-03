@@ -9,7 +9,7 @@
 
 # Build QMP needed by QDP++ and Chroma
 ./build_qmp.sh
-./build_qdp++-tbb.sh
+./build_qdp++.sh
 #./build_qdp++-tbb_3d.sh
 ./build_dslash_avx.sh
 
