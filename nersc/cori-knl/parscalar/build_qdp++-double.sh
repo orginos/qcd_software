@@ -24,7 +24,7 @@ ${SRCDIR}/qdpxx/configure \
 	--prefix=${INSTALLDIR}/qdp++-double \
         --enable-parallel-arch=parscalar \
 	--enable-precision=double \
-        --disable-filedb \
+        --enable-filedb \
 	--disable-generics \
         --enable-largefile \
         --enable-parallel-io \
