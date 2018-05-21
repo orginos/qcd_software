@@ -22,6 +22,7 @@ cd ./build_chroma-double-scalar
 
 ${SRCDIR}/chroma/configure --prefix=${INSTALLDIR}/chroma-double-scalar \
 	--with-qdp=${INSTALLDIR}/qdp++-double-scalar \
+        --with-gmp=/shared/gcc-5.3.0/lib64 \
         --enable-cpp-wilson-dslash --enable-sse2 --enable-sse3 ${OMPENABLE} \
         CC="${PK_CC}"  CXX="${PK_CXX}" \
 	CXXFLAGS="" CFLAGS="" \

@@ -45,8 +45,8 @@ OMPENABLE="--enable-openmp"
 #OMPENABLE=" "
 
 ### COMPILER FLAGS
-PK_CXXFLAGS=${OMPFLAGS}" -O3 -std=c++0x -march=corei7-avx -mtune=corei7-avx -mno-avx -mno-aes"
-PK_CFLAGS=${OMPFLAGS}" -O3 -std=gnu99 -march=corei7-avx -mtune=corei7-avx -mno-avx -mno-aes"
+PK_CXXFLAGS=${OMPFLAGS}" -O3 -std=c++0x -march=corei7-avx -mtune=corei7-avx -mno-avx -mno-aes -Xlinker -zmuldefs "
+PK_CFLAGS=${OMPFLAGS}" -O3 -std=gnu99 -march=corei7-avx -mtune=corei7-avx -mno-avx -mno-aes "
 
 ### Make
 MAKE="make -j 20"
@@ -56,5 +56,5 @@ PK_CC=mpicc
 PK_CXX=mpicxx
 HOST_CC=gcc
 HOST_CXX=g++
-HOST_CXXFLAGS="-O3"
-HOST_CFLAGS="-03"
+HOST_CXXFLAGS="-O3 -Wl,-zmultdefs"
+HOST_CFLAGS="-03 -Wl,-zmultdefs"
