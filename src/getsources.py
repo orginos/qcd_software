@@ -36,7 +36,17 @@ def wgetGet(pkg_name, wget_url, releasename):
     call(command1)
     call(command2)
     call(command3)
-    
+
+def wgetGetBZ2(pkg_name, wget_url, releasename):
+    zipname=releasename+".tar.bz2"
+    command1=("wget "+wget_url).split()
+    command2=("tar zxf "+zipname).split()
+    command3=("mv "+releasename+" "+pkg_name).split()
+
+    call(command1)
+    call(command2)
+    call(command3)
+      
 def curlGet(pkg_name, curl_url, zipname):
     command1=("curl "+curl_url+" > "+zipname).split()
     print "Our working dir is " + os.getcwd()
@@ -58,7 +68,7 @@ def tarBGet(pkg_name, tar_file, untar_name):
 chroma = ("chroma", "GIT", "git@github.com:JeffersonLab/chroma.git","master",False)
 wm_chroma = ("wm_chroma", "GIT", "git@github.com:JeffersonLab/wm_chroma.git","new_master",False)
 qdpxx = ("qdpxx", "GIT", "git@github.com:usqcd-software/qdpxx.git", "master",False)
-qdp_jit=("qdp-jit", "GIT", "git@github.com:fwinter/qdp-jit","master",False)
+qdp_jit=("qdp-jit", "GIT", "git@github.com:fwinter/qdp-jit","llvm-cpu-inner-loop-no11-qshift",False)
 qmp=("qmp", "GIT", "git@github.com:usqcd-software/qmp.git", "master",False)
 quda=("quda", "GIT", "git@github.com:lattice/quda.git", "master",False)
 qphix=("qphix", "GIT", "git@github.com:JeffersonLab/qphix.git", "master",False)
@@ -91,9 +101,10 @@ itpp=("itpp", "TARGZ", "./itpp-4.3.1.tar.gz", "itpp-4.3.1",True)
 primme_v1p2=("primme_v1p2", "TARGZ", "./primme_v1.2.tar.gz", "primme_v1.2",True)
 #arprec=("arprec","WGET","http://crd.lbl.gov/~dhbailey/mpdist/arprec-2.2.17.tar.gz", "arprec-2.2.17",True)
 #qd=("qd","WGET","http://crd.lbl.gov/~dhbailey/mpdist/qd-2.3.17.tar.gz","qd-2.3.17",True)
+gmp=("gmp","WGETBZ2","wget https://gmplib.org/download/gmp/gmp-6.1.2.tar.bz2","gmp",True)
 
 # FULL PACKAGE LIST -- I distribute this because I have the 'ansidecl' thing commented out
-package_list=[ chroma_utils, adat, chroma, qdpxx, harom, hadron, tensor, qdp_jit, qmp, mdwf, quda, qphix, qdpc, qio, qla, qopqdp, libxml2,primme,colorvec,redstar,wm_chroma, laplace_eigs,atlas,taskfarmer,primme_v1p2]
+package_list=[ chroma_utils, adat, chroma, qdpxx, harom, hadron, tensor, qdp_jit, qmp, mdwf, quda, qphix, qdpc, qio, qla, qopqdp, libxml2,primme,colorvec,redstar,wm_chroma, laplace_eigs,atlas,taskfarmer,primme_v1p2,gmp]
 
 
 for pkg in package_list:
@@ -104,6 +115,8 @@ for pkg in package_list:
             gitGet(name,url,branchname,tagP)
         elif method == "WGET":   
             wgetGet(name,url,branchname)
+        elif method == "WGETBZ2":   
+            wgetGetBZ2(name,url,branchname)
         elif method == "CURL":
             curlGet(name,url,branchname)
 	elif method == "TARGZ":

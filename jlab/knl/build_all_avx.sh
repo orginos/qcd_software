@@ -11,6 +11,7 @@
 
 ./build_harom.sh
 ./build_chroma.sh
+./build_chroma_noqphix.sh
 ./build_wm_chroma.sh
 
 #./build_chroma-double.sh

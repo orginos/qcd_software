@@ -25,6 +25,7 @@ ${SRCDIR}/harom/configure --prefix=${INSTALLDIR}/harom \
 	--with-qdp=${INSTALLDIR}/qdp++_3d \
         ${OMPENABLE} \
         CC="${PK_CC}"  CXX="${PK_CXX}" \
+          --host=x86_64-linux-gnu --build=none \
 	CXXFLAGS="${PK_CXXFLAGS}" CFLAGS="${PK_CFLAGS}" 
 
 
