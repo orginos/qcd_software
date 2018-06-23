@@ -27,6 +27,14 @@
 # The directory containing the build scripts, this script and the src/ tree
 TOPDIR=`pwd`
 
+export CONDA_DEFAULT_ENV=my_jinja_env
+export CONDA_PREFIX=/sciclone/home10/kostas/.conda/envs/my_jinja_env
+export PK_PYTHON_EXE=${CONDA_PREFIX}/bin/python3
+export PK_PYTHON_LIB=${CONDA_PREFIX}/lib
+export PK_PYTHON_INC=${CONDA_PREFIX}/include
+
+export PK_TARGET_JN="16"
+
 # Install directory
 INSTALLDIR=${TOPDIR}/install
 SCALAR_INSTALLDIR=${TOPDIR}/../scalar/install
@@ -62,6 +70,7 @@ OMPENABLE="--enable-openmp"
 # ENABLE THis for AVX
 ARCHFLAGS="-xMIC-AVX512   -restrict"
 export PK_AVX_VERSION="AVX512"
+export PK_QPHIX_ISA="avx512"
 
 #ARCHFLAGS=" -march=corei7-avx -Drestrict=__restrict__" 
 PK_CXXFLAGS=${OMPFLAGS}"  -O3 -finline-functions -fno-alias -std=c++11 "${ARCHFLAGS}
