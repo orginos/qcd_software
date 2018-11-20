@@ -11,39 +11,34 @@ popd
 
 pushd ${BUILDDIR}
 
-if [ -d ./build_qdpxx-parscalar-avx_3d ]; 
+if [ -d ./build_qdpxx-parscalar-avx-double_3d ]; 
 then 
-  rm -rf ./build_qdpxx-parscalar-avx_3d
+  rm -rf ./build_qdpxx-parscalar-avx-double_3d
 fi
 
-mkdir  ./build_qdpxx-parscalar-avx_3d
-cd ./build_qdpxx-parscalar-avx_3d
+mkdir  ./build_qdpxx-parscalar-avx-double_3d
+cd ./build_qdpxx-parscalar-avx-double_3d
 
 
 ${SRCDIR}/qdpxx/configure \
-	--prefix=${INSTALLDIR}/qdp++_3d \
+	--prefix=${INSTALLDIR}/qdp++-double_3d \
         --enable-Nd=3 \
         --enable-parallel-arch=parscalar \
-	--enable-precision=single \
-        --enable-filedb \
+	--enable-precision=double \
+        --disable-filedb \
 	--disable-generics \
         --enable-largefile \
         --enable-parallel-io \
         --enable-alignment=64 \
 	--with-qmp=${INSTALLDIR}/qmp \
 	--with-libxml2=${INSTALLDIR}/libxml2\
-	CXXFLAGS="${PK_CXXFLAGS} -I${TBBINCDIR} -g" \
+	CXXFLAGS="${PK_CXXFLAGS} -fpermissive " \
 	CFLAGS="${PK_CFLAGS}" \
 	CXX="${PK_CXX}" \
 	CC="${PK_CC}" \
-	LDFLAGS="-L${TBBLIBDIR}" LIBS="-ltbb -ltbbmalloc -lpthread" \
-        ${OMPENABLE} \
-        --host=x86_64-linux-gnu --build=none \
-        --enable-tbb-pool-allocator
-
+	--host=x86_64-linux-gnu --build=none \
+	${OMPENABLE}
 ${MAKE}
 ${MAKE} install
-
-#--host=x86_64-linux-gnu --build=none \
 
 popd
