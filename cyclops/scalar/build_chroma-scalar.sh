@@ -22,6 +22,7 @@ cd ./build_chroma-scalar
 
 ${SRCDIR}/chroma/configure --prefix=${INSTALLDIR}/chroma-scalar \
 	--with-qdp=${INSTALLDIR}/qdp++-scalar \
+        --with-gmp=/shared/gcc-5.3.0/lib64 \
         --enable-cpp-wilson-dslash  ${OMPENABLE} \
         CC="${PK_CC}"  CXX="${PK_CXX}" \
         LIBS="-llapack -lblas" \

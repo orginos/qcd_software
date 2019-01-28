@@ -99,12 +99,13 @@ mdwf=("mdwf", "TARGZ", "./mdwf-1.1.4.tar.gz", "mdwf-1.1.4",True)
 atlas=("atlas", "TARBZ", "./atlas3.11.38.tar.bz2", "atlas",True)
 itpp=("itpp", "TARGZ", "./itpp-4.3.1.tar.gz", "itpp-4.3.1",True)
 primme_v1p2=("primme_v1p2", "TARGZ", "./primme_v1.2.tar.gz", "primme_v1.2",True)
+eigen=("eigen", "TARGZ", "./eigen-3.3.4.tar.gz", "eigen-3.3.4",True)
 #arprec=("arprec","WGET","http://crd.lbl.gov/~dhbailey/mpdist/arprec-2.2.17.tar.gz", "arprec-2.2.17",True)
 #qd=("qd","WGET","http://crd.lbl.gov/~dhbailey/mpdist/qd-2.3.17.tar.gz","qd-2.3.17",True)
 gmp=("gmp","WGETBZ2","wget https://gmplib.org/download/gmp/gmp-6.1.2.tar.bz2","gmp",True)
 
 # FULL PACKAGE LIST -- I distribute this because I have the 'ansidecl' thing commented out
-package_list=[ chroma_utils, adat, chroma, qdpxx, harom, hadron, tensor, qdp_jit, qmp, mdwf, quda, qphix, qdpc, qio, qla, qopqdp, libxml2,primme,colorvec,redstar,wm_chroma, laplace_eigs,atlas,taskfarmer,primme_v1p2,gmp]
+package_list=[ chroma_utils, adat, chroma, qdpxx, harom, hadron, tensor, qdp_jit, qmp, mdwf, quda, qphix, qdpc, qio, qla, qopqdp, libxml2,primme,colorvec,redstar,wm_chroma, laplace_eigs,atlas,taskfarmer,primme_v1p2,gmp,eigen]
 
 
 for pkg in package_list:

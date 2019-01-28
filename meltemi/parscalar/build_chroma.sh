@@ -27,21 +27,28 @@ ${SRCDIR}/chroma/configure --prefix=${INSTALLDIR}/chroma \
 	--with-qdp=${INSTALLDIR}/qdp++ \
 	--with-qmp=${INSTALLDIR}/qmp \
          ${OMPENABLE} \
-       --enable-cpp-wilson-dslash --enable-sse2 \
        CC="${PK_CC}"  CXX="${PK_CXX}" \
-	CXXFLAGS="${PK_CXXFLAGS} -I${VTUNEINCDIR} -g" CFLAGS="${PK_CFLAGS}" \
-	LDFLAGS="-Wl,-zmuldefs  -L${VTUNELIBDIR} -L${TBBINCDIR}" LIBS=" -ltbb -ltbbmalloc -lpthread" \
-        --host=x86_64-linux-gnu --build=none
+	CXXFLAGS="${PK_CXXFLAGS} " CFLAGS="${PK_CFLAGS} " \
+	LDFLAGS="-Wl,-zmuldefs " LIBS="" \
+        --host=x86_64-linux-gnu --build=none \
+       --with-qphix-solver=${INSTALLDIR}/qphix_${PK_QPHIX_ISA} \
+        --enable-qphix-solver-arch=${PK_QPHIX_ISA} \
+        --enable-qphix-solver-soalen=8 \
+        --enable-qphix-solver-compress12 \
+        --enable-qphix-solver-inner-type=f \
+        --enable-qphix-solver-inner-soalen=8 \
+       --enable-static-packed-gauge \
+       --enable-fused-clover-deriv-loops \
+        --with-mg-proto=${INSTALLDIR}/mg_proto
 
-#       --enable-static-packed-gauge \
-#       --enable-fused-clover-deriv-loops \
+#     --enable-cpp-wilson-dslash --enable-sse2 \
 
 
 ${MAKE}
+${MAKE} check
 
-${MAKE} install
 #  LDFLAGS="-Wl,-zmuldefs  -L${VTUNELIBDIR} -L${TBBINCDIR}" LIBS=" -ltbb -ltbbmalloc -littnotify -lpthread" \
-#${MAKE} install
+${MAKE} install
 
 #       --with-qmp=${INSTALLDIR}/qmp \
 #        --with-qphix-solver=${INSTALLDIR}/dslash-avx-s4 \

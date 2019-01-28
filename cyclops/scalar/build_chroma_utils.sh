@@ -23,6 +23,7 @@ cd ./build_chroma_utils
 ${SRCDIR}/chroma_utils/configure --prefix=${INSTALLDIR}/chroma_utils \
     CC="${PK_CC}"  CXX="${PK_CXX}" \
     --with-libxml2=${INSTALLDIR}/libxml2 \
+    --with-adat=${INSTALLDIR}/adat \
     CXXFLAGS="-std=c++11 -I ${INSTALLDIR}/atlas/include" \
     LDFLAGS="-L ${INSTALLDIR}/atlas/lib"  \
     LIBS="-lm -llapack -latlas"
