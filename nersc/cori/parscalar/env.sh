@@ -49,10 +49,11 @@ PK_MPI_HOME=${MPIHOME}               # At LLNL Loading the module sets this. Oth
 OMPFLAGS=""
 OMPENABLE=""
 
-ARCHFLAGS="-xAVX -restrict"
+#ARCHFLAGS="-xAVX -restrict"
+ARCHFLAGS="-xMIC-AVX512 -restrict"
 
 ### COMPILER FLAGS
-PK_CXXFLAGS=${OMPFLAGS}" -O3 -std=c++11 -finline-functions -fno-alias "${ARCHFLAGS}
+PK_CXXFLAGS=${OMPFLAGS}" -O3 -std=c++14 -finline-functions -fno-alias "${ARCHFLAGS}
 PK_CFLAGS=${OMPFLAGS}" -O3 -fno-alias -std=gnu99 "${ARCHFLAGS}
 
 ### Make

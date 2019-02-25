@@ -31,14 +31,13 @@ ${SRCDIR}/qdpxx/configure \
         --enable-alignment=64 \
 	--with-qmp=${INSTALLDIR}/qmp \
 	--with-libxml2=${INSTALLDIR}/libxml2\
-	CXXFLAGS="${PK_CXXFLAGS} -I${TBBINCDIR} -g" \
+	CXXFLAGS="${PK_CXXFLAGS} -fpermissive " \
 	CFLAGS="${PK_CFLAGS}" \
 	CXX="${PK_CXX}" \
 	CC="${PK_CC}" \
-	LDFLAGS="-dynamic -L${TBBLIBDIR}" LIBS="-ltbb -ltbbmalloc -lpthread" \
 	--host=x86_64-linux-gnu --build=none \
-	${OMPENABLE} \
-      --enable-tbb-pool-allocator
+	${OMPENABLE} 
+
 ${MAKE}
 ${MAKE} install
 

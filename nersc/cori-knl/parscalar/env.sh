@@ -1,3 +1,4 @@
+#. ../setup.sh
 ##### 
 # SET UP ENVIRONMENT
 #
@@ -5,32 +6,30 @@
 #
 # Source whatever it is you need to set up your compiler here.
 # Change this to use your compiler.
-
+. /opt/modules/default/init/bash
+module unload PrgEnv-cray
+module unload PrgEnv-intel
+module unload PrgEnv-pgi
+module unload PrgEnv-gnu
+module unload darshan
 module unload craype-haswell
-module load craype-hugepages2M
-module load gcc/6.3.0
 module load PrgEnv-intel
 module unload intel
-module load intel/16.0.3.210
+module load intel/19.0.0.117
 module load craype-mic-knl
-module unload cmake
+#`module load craype-hugepages2M
+
+module load python3
 module load cmake/3.8.2
-module load python/3.5-anaconda
+
 module list
-source activate my_jinja_env
 
-export LD_LIBRARY_PATH=/opt/gcc/6.3.0/snos/lib64:${LD_LIBRARY_PATH}
+
 TOPDIR=`pwd`
-LLVM_INSTALL_DIR=${HOME}/install/llvm-4.0.0
 
+# Install directory
 INSTALLDIR=${TOPDIR}/install
 
-# LLVM Install location for linking
-export LD_LIBRARY_PATH=${LLVM_INSTALL_DIR}/lib:${LD_LIBRARY_PATH}
-
-export PK_PYTHON_EXE=${CONDA_PREFIX}/bin/python3
-export PK_PYTHON_LIB=${CONDA_PREFIX}/lib
-export PK_PYTHON_INC=${CONDA_PREFIX}/include
 # Source directory
 SRCDIR=${TOPDIR}/../../../src
 
@@ -39,59 +38,56 @@ BUILDDIR=${TOPDIR}/build
 
 
 ### OpenMP
-OMPFLAGS="-qopenmp "
+OMPFLAGS="-openmp -D_REENTRANT"
 OMPENABLE="--enable-openmp"
+
+# ENABLE THis for AVX
+# This archflag is for ICC v15
+#ARCHFLAGS="-xAVX -qopt-report=3 -qopt-report-phase=vec  -restrict"
+
+#ARCHFLAGS="-xAVX -opt-report -vec-report -restrict"
+
+export PK_QPHIX_ISA="avx512"
+export PK_TARGET_JN="10"
+export PK_KOKKOS_HOST_ARCH="KNL
+"
+
+MKL_INC=""
+MKL_LINL=""
 
 if test "X${MKLROOT}X" == "XX";
 then
- MKL_INC=""
- MKL_LINK=""
+    MKL_INC=""
+    MKL_LINK=""
 else
- MKL_INC=" -I${MKLROOT}/include"
- if test "X${OMPFLAGS}X" == "XX";
- then
-    MKL_LINK=" -Wl,--start-group ${MKLROOT}/lib/intel64/libmkl_intel_lp64.a ${MKLROOT}/lib/intel64/libmkl_core.a ${MKLROOT}/lib/intel64/libmkl_sequential.a -Wl,--end-group -lpthread -lm"
- else
-    # Threaded Libs
-    MKL_LINK=" -Wl,--start-group ${MKLROOT}/lib/intel64/libmkl_intel_lp64.a ${MKLROOT}/lib/intel64/libmkl_core.a ${MKLROOT}/lib/intel64/libmkl_intel_thread.a -Wl,--end-group -lpthread -lm"
- fi
+    MKL_INC=" -I${MKLROOT}/include"
+    if test "X${OMPFLAGS}X" == "XX";
+    then
+        MKL_LINK=" -Wl,--start-group ${MKLROOT}/lib/intel64/libmkl_intel_lp64.a ${MKLROOT}/lib/intel64/libmkl_core.a ${MKLROOT}/lib/intel64/libmkl_sequential.a -Wl,--end-group -lpthread -lm"
+    else
+        # Threaded Libs                                                                                                 
+        MKL_LINK=" -Wl,--start-group ${MKLROOT}/lib/intel64/libmkl_intel_lp64.a ${MKLROOT}/lib/intel64/libmkl_core.a ${MKLROOT}/lib/intel64/libmkl_intel_thread.a -Wl,--end-group -lpthread -lm"
+    fi
 fi
+
 
 echo "MKL INCLUDE FLAGS:" $MKL_INC
 echo "MKL LINKL FLAGS:" $MKL_LINK
 
-export TBBLIBDIR=/opt/intel/compilers_and_libraries_2016.3.210/linux/tbb/lib/intel64/gcc4.4
-export TBBINCDIR=/opt/intel/compilers_and_libraries_2016.3.210/linux/tbb/include/
+ARCHFLAGS="-xMIC-AVX512 -restrict" 
 
-export LD_LIBRARY_PATH=${TBBLIBDIR}:${LD_LIBRARY_PATH}
+PK_CXXFLAGS=${OMPFLAGS}"-dynamic -g -O3 -finline-functions -fno-alias -std=c++11 "${ARCHFLAGS}
 
-export PK_QPHIX_ISA="avx512"
-ARCHFLAGS="-xMIC-AVX512 -restrict -qoverride-limits"
-
-PK_CXXFLAGS=${OMPFLAGS}" -g -O3 -std=c++11 "${ARCHFLAGS}" -dynamic "
-PK_CFLAGS=${OMPFLAGS}" -g -O3 -std=c99 "${ARCHFLAGS}" -dynamic  "
+PK_CFLAGS=${OMPFLAGS}" -g  -O3 -fno-alias -std=c99 "${ARCHFLAGS}
 
 ### Make
-export PK_TARGET_JN="8"
-export MAKE="make -j ${PK_TARGET_JN}" 
+MAKE="make -j ${PK_TARGET_JN}"
 
 # Compilers for compiling package (passed as CC to ./configure throghout) 
-# Cray Wrapper
-PK_CC=cc
-# Cray Wrapper
-PK_CXX=CC
-PK_HOST_CXX=g++
-PK_HOST_CC=gcc
-PK_HOST_CXXFLAGS="-g -O3 -std=c++11"
-PK_HOST_CFLAGS="-g -O3 -std=c99"
-PK_LLVM_CXX=${PK_HOST_CXX}
-PK_LLVM_CC=${PK_HOST_CC}
-PK_LLVM_CFLAGS="${PK_HOST_CFLAGS}"
-PK_LLVM_CXXFLAGS="${PK_HOST_CXXFLAGS}"
-QDPJIT_HOST_ARCH="X86"
 
-#GNU Wrappers
-#PK_CC=mpicc
-#PK_CXX=mpicxx
-#PK_CC="mpicc -cc=icc "
-#PK_CXX="mpicxx -CC=icpc "
+# Cray stuff
+PK_CC=cc
+PK_CXX=CC
+PK_HOST_CXX=icpc
+PK_HOST_CXXFLAGS="-g -O3 -std=c++11 "
+

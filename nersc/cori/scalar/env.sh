@@ -16,9 +16,12 @@
 #  If your MPI wrapper is not mpicc/mpicxx you may still need to do some
 #  tedious mucking about in the src/quda/make.inc file
 #
-. /opt/modules/default/init/bash
-module load cmake
-module load cray-libsci
+#. /opt/modules/default/init/bash
+
+module unload cmake
+module load cmake/3.8.2
+module load PrgEnv-intel
+#module load cray-libsci
 module list
 
 ### DIRECTORIES
@@ -40,6 +43,24 @@ BUILDDIR=${TOPDIR}/build
 ### ENV VARS for CUDA/MPI
 # These are used by the configure script to make make.inc
 PK_MPI_HOME=${MPIHOME}               # At LLNL Loading the module sets this. Otherwise do by hand
+
+
+if test "X${MKLROOT}X" == "XX";
+then
+ MKL_INC=""
+ MKL_LINK=""
+else
+ MKL_INC=" -I${MKLROOT}/include"
+ if test "X${OMPFLAGS}X" == "XX";
+ then
+    MKL_LINK=" -Wl,--start-group ${MKLROOT}/lib/intel64/libmkl_intel_lp64.a ${MKLROOT}/lib/intel64/libmkl_core.a ${MKLROOT}/lib/intel64/libmkl_sequential.a -Wl
+,--end-group -lpthread -lm"
+ else
+    # Threaded Libs
+    MKL_LINK=" -Wl,--start-group ${MKLROOT}/lib/intel64/libmkl_intel_lp64.a ${MKLROOT}/lib/intel64/libmkl_core.a ${MKLROOT}/lib/intel64/libmkl_intel_thread.a -
+Wl,--end-group -lpthread -lm"
+ fi
+fi
 
 ### OpenMP
 #OMPFLAGS="-fopenmp"
