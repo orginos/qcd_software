@@ -27,8 +27,10 @@ ${SRCDIR}/qdpxx/configure \
         --enable-parallel-arch=parscalar \
 	--enable-db-lite \
 	--enable-precision=single \
+        --disable-generics \
 	--enable-largefile \
 	--enable-parallel-io \
+        --enable-alignment=64 \
         --enable-dml-output-buffering \
 	CXXFLAGS="${PK_CXXFLAGS}" \
 	CFLAGS="${PK_CFLAGS}" \

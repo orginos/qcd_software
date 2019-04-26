@@ -10,8 +10,11 @@
 # Build QMP needed by QDP++ and Chroma
 ./build_qmp.sh
 ./build_qdp++.sh
-#./build_qdp++-tbb_3d.sh
-./build_dslash_avx.sh
+./build_qdp++-double.sh
+
+# Build QPhiX
+./build_qphix_cmake.sh
+./build_qphix_cmake-double.sh
 
 # Build the MG Train...
 #./build_qla.sh
@@ -25,6 +28,7 @@
 
 ./build_chroma.sh
 ./build_wm_chroma.sh
-./build_chroma_qphix.sh
-./build_wm_chroma_qphix.sh
+
+./build_chroma-double.sh
+./build_wm_chroma-double.sh
 
