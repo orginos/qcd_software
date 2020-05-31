@@ -14,13 +14,14 @@ module unload PrgEnv-gnu
 module unload darshan
 module unload craype-haswell
 module load PrgEnv-intel
-module unload intel
-module load intel/19.0.0.117
+#defaults are fine
+#module unload intel
+#module load intel/19.0.0.117
 module load craype-mic-knl
 #`module load craype-hugepages2M
 
 module load python3
-module load cmake/3.8.2
+#module load cmake/3.8.2
 
 module list
 
