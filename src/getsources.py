@@ -16,14 +16,14 @@ def gitGet(pkg_name, git_url, branch,tag=False):
         # its a tag, not a real branch:
         command = ("git clone --recursive "+git_url).split()
         call(command)
-	cwd=os.getcwd();
-	print "Changing dir to "+cwd+"/"+pkg_name
-	os.chdir(cwd+"/"+pkg_name)
-	print "Checking out tag "+branch
+        cwd=os.getcwd()
+        print("Changing dir to "+cwd+"/"+pkg_name)
+        os.chdir(cwd+"/"+pkg_name)
+        print("Checking out tag "+branch)
         command = ("git checkout "+branch).split()
         call(command)
-	print "Changing back to "+cwd
- 	os.chdir(cwd)
+        print("Changing back to "+cwd)
+        os.chdir(cwd)
 
 
     
@@ -49,7 +49,7 @@ def wgetGetBZ2(pkg_name, wget_url, releasename):
       
 def curlGet(pkg_name, curl_url, zipname):
     command1=("curl "+curl_url+" > "+zipname).split()
-    print "Our working dir is " + os.getcwd()
+    print( "Our working dir is " + os.getcwd())
     command2=("tar zxf "+zipname).split()
     command3=("mv "+zipname+" "+pkg_name).split()
     call(command1)
@@ -111,7 +111,7 @@ package_list=[ chroma_utils, adat, chroma, qdpxx, harom, hadron, tensor, qdp_jit
 for pkg in package_list:
         (name,method,url,branchname,tagP)=pkg 
                  
-        print "Getting Package "+name+" via "+method+" from "+url
+        print( "Getting Package "+name+" via "+method+" from "+url)
         if method =="GIT" :
             gitGet(name,url,branchname,tagP)
         elif method == "WGET":   
@@ -120,11 +120,11 @@ for pkg in package_list:
             wgetGetBZ2(name,url,branchname)
         elif method == "CURL":
             curlGet(name,url,branchname)
-	elif method == "TARGZ":
-	    tarGet(name,url,branchname)
+        elif method == "TARGZ":
+            tarGet(name,url,branchname)
         elif method == "TARBZ":
-	    tarBGet(name,url,branchname)
+            tarBGet(name,url,branchname)
 
-        print
+        print(" ")
 
             
