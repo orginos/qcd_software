@@ -83,6 +83,8 @@ colorvec=("colorvec", "GIT", "git@github.com:JeffersonLab/colorvec.git", "devel"
 laplace_eigs=("laplace_eigs", "GIT", "git@github.com:JeffersonLab/laplace_eigs.git", "native",False)
 OpenBLAS=("OpenBLAS","GIT","git@github.com:xianyi/OpenBLAS.git","master",False)
 
+mg_proto=("mg_proto","GIT","git@github.com:jeffersonlab/mg_proto.git","devel",False)
+
 # QDP/C libraries for Multigrid
 qdpc=("qdp", "GIT", "git@github.com:usqcd-software/qdp.git", "qdp1-10-0",True)
 qio=("qio", "GIT", "git@github.com:usqcd-software/qio.git", "qio2-3-9",True)
