@@ -25,23 +25,21 @@ cd ./build_qdp++
 
 ${SRCDIR}/qdpxx/configure \
 	--prefix=${INSTALLDIR}/qdp++/mpi \
-	--enable-sse2 --enable-sse3 \
-        --enable-parallel-arch=parscalar \
-	--enable-db-lite \
-	--enable-precision=single \
-	--enable-largefile \
-	--enable-parallel-io \
-        --enable-dml-output-buffering \
-	--with-qmp=${INSTALLDIR}/qmp-mpi 
+	--enable-parallel-arch=parscalar \
+        --enable-precision=single \
+	--enable-filedb \
+	--disable-generics \
+	--with-qmp=${INSTALLDIR}/qmp-mpi \
+	--enable-alignment=64 \
 	CXXFLAGS="${PK_CXXFLAGS}" \
 	CFLAGS="${PK_CFLAGS}" \
 	CXX="${PK_CXX}" \
 	CC="${PK_CC}" \
-	LIBS="-lmpi " \
-	LDFLAGS="-L/usr/local/lib/ -lmpi"
 	${OMPENABLE}
 
 ${MAKE}
 ${MAKE} install
 
 popd
+#	LIBS="-lmpi " \
+#	LDFLAGS="-L/usr/local/lib/ -lmpi"

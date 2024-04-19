@@ -12,21 +12,21 @@ popd
 
 pushd ${BUILDDIR}
 
-if [ -d ./build_chroma-scalar ]; 
+if [ -d ./build_chroma-mpi ]; 
 then 
-  rm -rf ./build_chroma-scalar
+  rm -rf ./build_chroma-mpi
 fi
 
-mkdir  ./build_chroma-scalar
-cd ./build_chroma-scalar
+mkdir  ./build_chroma-mpi
+cd ./build_chroma-mpi
 
 
-${SRCDIR}/chroma/configure --prefix=${INSTALLDIR}/chroma/scalar \
-	--with-qdp=${INSTALLDIR}/qdp++/scalar \
+${SRCDIR}/chroma/configure --prefix=${INSTALLDIR}/chroma/mpi \
+	--with-qdp=${INSTALLDIR}/qdp++/mpi \
         ${OMPENABLE} \
+	--with-superbblas=${SRCDIR}/superbblas \
 	--enable-cpp-wilson-dslash ${OMPENABLE} \
         CC="${PK_CC}"  CXX="${PK_CXX}" \
-	CXXFLAGS="" CFLAGS=""  \
         LIBS=" -llapack -lblas -framework Accelerate"
        
 
@@ -34,4 +34,4 @@ ${MAKE}
 ${MAKE} install
 
 popd
-#	--with-superbblas=${SRCDIR}/superbblas
+#	

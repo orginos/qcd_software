@@ -10,7 +10,7 @@ TOPDIR=`pwd`
 
 # Install directory
 #INSTALLDIR=${TOPDIR}/install
-INSTALLDIR=/usr/local/scidac
+INSTALLDIR=/opt/scidac
 
 # Source directory
 SRCDIR=${TOPDIR}/../src
@@ -30,9 +30,10 @@ OMPFLAGS=""
 OMPENABLE=""
 
 ### COMPILER FLAGS
-PK_CXXFLAGS=${OMPFLAGS}" -O3 -std=c++11  -funroll-loops   -ffast-math  -mtune=native -march=native  -fstrict-aliasing  -msse2 -msse3"
+#PK_CXXFLAGS=${OMPFLAGS}" -O3 -std=c++14  -funroll-loops   -ffast-math  -mtune=native -march=native  -fstrict-aliasing"
+PK_CXXFLAGS=${OMPFLAGS}" -O3 -std=c++17  "
 
-PK_CFLAGS=${OMPFLAGS}" -O3 -march=native -mtune=native -funroll-loops  -ffast-math -fstrict-aliasing  -std=gnu99 -msse2 -msse3"
+PK_CFLAGS=${OMPFLAGS}" -O3 -march=native -mtune=native -funroll-loops  -ffast-math -fstrict-aliasing  -std=gnu99"
 
 ### Make
 MAKE="make -j 16"
